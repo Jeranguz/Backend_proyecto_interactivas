@@ -1,3 +1,26 @@
+<?php 
+    require_once 'database.php';
+    if($_GET){
+
+
+        $item = $database->select("tb_dishes",[
+            "[>]tb_dishes_category"=>["id_category" =>"id_category"],
+            "[>]tb_amount_people"=>["id_amount_people" =>"id_amount_people"]
+        ],[
+            "tb_dishes.id_dishes",
+            "tb_dishes.n_dishes",
+            "tb_dishes.d_dish",
+            "tb_dishes.img_dish",
+            "tb_dishes.price",
+            "tb_dishes_category.n_category",
+            "tb_amount_people.n_category_people"
+        ],[
+            "id_dishes" => $_GET["id"]
+        ]);
+    }
+   
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,29 +66,34 @@
 
 
         <section id="buy" class="buy-dish-container">
-            <h2 class="featured-text">Farikal</h2>
-            <div class="img-thumb">
-                <div class="dish-price-container">
-                    <span class="dish-price">$12.99</span>
-                </div>
-                <img class="dishes-img" src="./img/f.png" alt="">
-            </div>
-            <p class="porpuse-text">It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
+            
+        <?php 
+          echo"<h2 class='featured-text'>".$item[0]["n_dishes"]."</h2>";
+          echo"<div class='img-thumb'>";
+          echo"<div class='dish-price-container'>";
+          echo"<span class='dish-price'>$".$item[0]["price"]."</span>";    
+          echo"</div>";
+          echo"<img class='dishes-img' src='./img/".$item[0]["img_dish"]."' />";
+          echo"</div>";
+          echo"<p class='porpuse-text'>".$item[0]["d_dish"]."</p>";
+          
 
-            <section class="tags-container">
-                <div class="tag">
-                    <img class="tag-img" src="./img/categories.svg" alt="">
-                    <span class="porpuse-text"> Vegetarian</span>
-                </div>
-                <div class="tag">
-                    <img class="tag-img" src="./img/people.svg" alt="">
-                    <span class="porpuse-text"> 1 </span>
-                </div>
-                <div class="tag">
-                    <img class="tag-img" src="./img/heart.svg" alt="">
-                    <span class="porpuse-text"> Feautured</span>
-                </div>
-            </section>
+          echo "<section class='tags-container'>";
+          echo "    <div class='tag'>";
+          echo "        <img class='tag-img' src='./img/categories.svg' alt=''>";
+          echo "        <span class='porpuse-text'> ".$item[0]["n_category"]."</span>";
+          echo "    </div>";
+          echo "    <div class='tag'>";
+          echo "        <img class='tag-img' src='./img/people.svg' alt=''>";
+          echo "        <span class='porpuse-text'> ".$item[0]["n_category_people"]."</span>";
+          echo "    </div>";
+          echo "    <div class='tag'>";
+          echo "        <img class='tag-img' src='./img/heart.svg' alt=''>";
+          echo "        <span class='porpuse-text'> Feautured</span>";
+          echo "    </div>";
+          echo "</section>";
+        ?>
+        
             <div class="input-container">
                 <div class="input-div">
                     <label class="porpuse-text" for="dish-amount">Select the quantity</label>

@@ -1,13 +1,7 @@
 <?php 
     require_once 'database.php';
-
-    // Reference: https://medoo.in/api/select
-    //variables que almacenan las platillos
-    $main_dishes = $database->select("tb_dishes","*",["id_category_dish"=>1]);
-    $salads = $database->select("tb_dishes","*",["id_category_dish"=>2]);
-    $desserts = $database->select("tb_dishes","*",["id_category_dish"=>3]);
-    $drinks = $database->select("tb_dishes","*",["id_category_dish"=>4]);
-    
+    $categories = $database->select("tb_dishes_category","*");
+   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,72 +47,41 @@
         </div>
     </nav>
     <h1 class="menu-title">Menu</h1>
-    <section class="category-section">
-    <h2 id="salads" class="category-title">Salads</h2>
-    <div class="category-container">
-    <?php 
-    //ciclo para agregar cada platillo
-        foreach($salads as $salad){
-            echo "<div class='food-container'>";
-            echo "<img class= 'featured-img' src='./img/".$salad["img_dish"]."' alt='Food'>";
-            echo "<h3 class='food-text'>".$salad["n_dishes"]."</h3>";
-            echo "<p class='food-description'>".substr($salad["d_dish"], 0, 80)."...</p>";
-            echo "<a class='details-buttom' href='index2.php?id=".$salad["id_dishes"]."'>See details</a>";
-            echo "</div>";
-        }
-        ?>
-    </div>
-</section>
+    
+    <?php  
+         foreach($categories as $category){
+            echo "<section class='category-section'>";
+                echo "<h2 id='salads' class='category-title'>".$category['n_category']."</h2>";
+                    echo "<div class='category-container'>";
 
-<section class="category-section">
-    <h2 id="main-dishes" class="category-title">Main Dishes</h2>
-    <div class="category-container">
-        <?php 
-        //ciclo para agregar cada platillo
-        foreach($main_dishes as $main_dish){
-            echo "<div class='food-container'>";
-            echo "<img class= 'featured-img' src='./img/".$main_dish["img_dish"]."' alt='Food'>";
-            echo "<h3 class='food-text'>".$main_dish["n_dishes"]."</h3>";
-            echo "<p class='food-description'>".substr($main_dish["d_dish"], 0, 80)."...</p>";
-            echo "<a class='details-buttom' href='index2.php?id=".$main_dish["id_dishes"]."'>See details</a>";
-            echo "</div>";
-        }
-        ?>
-        
-    </div>
-</section>
-<section class="category-section">
-    <h2 id="desserts" class="category-title">Desserts</h2>
-    <div class="category-container">
-    <?php 
-    //ciclo para agregar cada platillo
-        foreach($desserts as $dessert){
-            echo "<div class='food-container'>";
-            echo "<img class= 'featured-img' src='./img/".$dessert["img_dish"]."' alt='Food'>";
-            echo "<h3 class='food-text'>".$dessert["n_dishes"]."</h3>";
-            echo "<p class='food-description'>".substr($dessert["d_dish"], 0, 80)."...</p>";
-            echo "<a class='details-buttom' href='index2.php?id=".$dessert["id_dishes"]."'>See details</a>";
-            echo "</div>";
-        }
-        ?>
-    </div>
-</section>
-<section class="category-section">
-    <h2 id="drinks" class="category-title">Drinks</h2>
-    <div class="category-container">
-    <?php 
-    //ciclo para agregar cada platillo
-        foreach($drinks as $drink){
-            echo "<div class='food-container'>";
-            echo "<img class= 'featured-img' src='./img/".$drink["img_dish"]."' alt='Food'>";
-            echo "<h3 class='food-text'>".$drink["n_dishes"]."</h3>";
-            echo "<p class='food-description'>".substr($drink["d_dish"], 0, 80)."...</p>";
-            echo "<a class='details-buttom' href='index2.php?id=".$drink["id_dishes"]."'>See details</a>";
-            echo "</div>";
-        }
-        ?>
-    </div>
-</section>
+                    $items = $database->select("tb_dishes",[
+                        "[>]tb_dishes_category"=>["id_category" =>"id_category"]
+                    ],[
+                        "tb_dishes.id_dishes",
+                        "tb_dishes.n_dishes",
+                        "tb_dishes.d_dish",
+                        "tb_dishes.img_dish"
+                    ],[
+                        "tb_dishes.id_category" => $category["id_category"]
+                    ]);
+
+
+                    foreach($items as $item){
+                        echo "<div class='food-container'>";
+                        echo "<img class= 'featured-img' src='./img/".$item["img_dish"]."' alt='Food'>";
+                        echo "<h3 class='food-text'>".$item["n_dishes"]."</h3>";
+                        echo "<p class='food-description'>".substr($item["d_dish"], 0, 80)."...</p>";
+                        echo "<a class='details-buttom' href='index2.php?id=".$item["id_dishes"]."'>See details</a>";
+                        echo "</div>";
+                    }
+                    
+                   
+             echo "</div>";
+            echo "</section>";
+        } 
+    
+     ?>
+
 <footer class="footer-container">
     <section class="logo">
         <img src="./img/logo.png" alt="">
