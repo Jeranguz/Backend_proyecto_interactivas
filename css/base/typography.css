@@ -1,0 +1,92 @@
+.main-title {
+    font-family: var(--ff-nor);
+    font-size: var(--fs-title);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: var(--fw-black);
+    margin: auto;
+    margin-bottom: 1rem;
+    margin-top: 15rem;
+}
+.main-text{
+    font-family: var(--ff-mon);
+    font-size: clamp(16px, 2vw, var(--fs-subtitle));
+    margin-bottom: 7rem;
+}
+.featured-text{
+    font-family: var(--ff-nor);
+    font-size: var(--fs-subtitle);
+    font-weight: var(--fw-black);
+    margin: 2rem 0 2rem 0;
+    text-align: center;
+}
+.food-text{
+    font-family: var(--ff-mon);
+    font-size: 3rem;
+    font-weight: var(--fw-md);
+    margin: 0;
+    padding: 1rem 0 1rem;
+}
+.food-description{
+    font-family: var(--ff-mon);
+    font-size: 1.2rem;
+    font-weight: var(--fw-md);
+    margin: auto;
+    padding-bottom: 2.8rem;
+    width: 26ch;
+}
+
+.ms-md{
+    font-family: var(--ff-mon);
+   
+    font-size: 1rem;
+    font-weight: var(--fw-md);
+    padding: 1rem;
+}
+
+.nv-md{
+    font-family: var(--ff-nor);
+    font-size: 2.6rem;
+    font-weight: var(--fw-md);
+
+}
+
+.img-center{
+  margin: auto;
+}
+
+.porpuse-text{
+    font-family: var(--ff-mon);
+    font-size: var(--fs-main-text);
+
+}
+
+
+.details-dish-text{
+    font-size: 3rem;
+}
+
+.center-text{
+  
+    
+    margin-top: 2rem;
+    text-align: center;
+    
+}
+
+.caracteristics-text{
+   margin: 0;
+  
+
+}
+/* Menu */
+.menu-title{
+    font-family: var(--ff-nor);
+    font-size: var(--fs-title);
+    margin-bottom: 0;
+    margin-left: 3rem;
+}
+.category-title{
+    font-family: var(--ff-nor);
+    font-size: var(--fs-title);
+}
+

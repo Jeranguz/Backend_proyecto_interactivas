@@ -1,0 +1,9 @@
+.header-container{
+    background: url('../../img/bg-header.png');
+    background-position: center;
+    background-size: cover;
+    height: min(60rem, 70rem, 75rem);
+    text-align: center; 
+    width: 100%;
+}
+

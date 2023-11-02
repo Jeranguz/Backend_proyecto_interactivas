@@ -1,0 +1,7 @@
+body{
+    background-color: var(--clr-main);
+    color: var(--clr-white);
+    margin: 0;
+    padding: 0;
+}
+

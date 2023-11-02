@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'Nordvest';
+    src: url('../../fonts/Nordvest-Black.otf') format('opentype');
+}
+:root{
+
+--ff-mon: 'Montserrat', sans-serif;
+--ff-nor: 'Nordvest', sans-serif;
+
+--fw-black: 900;
+--fs-md: 1.3rem; /* navigation */
+--fs-title: 6.5rem;
+--fs-main-text: 1.5rem;
+--fs-subtitle: 5rem;
+--fw-md: 500;
+
+--clr-main: hsl(218, 31%, 26%);
+--clr-featured: hsl(219, 16%, 50%);
+--clr-buttom: hsl(10.2, 81%, 58%);
+--clr-caracteristcs: hsl(220.5, 45%, 16%);
+--clr-footer: hsl(25, 75%, 31%);
+--clr-white: hsl(0, 0%, 100%);
+--clr-black: hsl(0, 0%, 0%);
+}

@@ -1,0 +1,89 @@
+@import url('./abstracts/vars.css');
+
+@import url('./base/base.css');
+@import url('./base/typography.css');
+
+@import url('./layout/grid.css');
+@import url('./layout/header.css');
+@import url('./layout/navigation.css');
+@import url('./layout/footer.css');
+
+@import url('./components/components.css');
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: var(--clr-caracteristcs);
+}
+.featured-img{
+    border-top-left-radius: 6rem;
+    border-top-right-radius: 6rem;
+    height: 14.2rem;
+    width: 100%;
+}
+.swiper{
+    width: 80%;
+    
+}
+.swiper-button-next{
+    color: var(--clr-buttom);
+}
+.swiper-button-prev{
+    color: var(--clr-buttom);
+}
+
+@media (max-width: 1136px){
+    .top-nav{
+        padding: 0.5rem 1rem;
+    }
+ 
+    .header-container{
+        height: 50rem; 
+    }
+
+    .hamburger-bottom{
+        display: flex;
+        position: sticky;
+        z-index: 11;
+    }
+  
+}
+
+@media (max-width: 700px){
+   
+    .food-container{
+        transition: none;
+        width: 21.5rem;
+    }
+    .main-title{
+        margin-top: 10rem;
+    }
+    .food-container:hover {
+        transform: none; /* Escala al 110% en el evento hover */
+      } 
+      .swiper-button-next{
+        display: none;
+     }
+     .swiper-button-prev{
+         display: none;
+     }
+     .cart{
+        width: 40%;
+     }
+}
+
+
+
+
+
+@media (max-width: 1000px){ 
+    .navigation-list{
+        align-items: center;
+        display: grid;
+        gap: 2rem;
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+    }   
+}

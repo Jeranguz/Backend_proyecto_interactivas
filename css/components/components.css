@@ -1,0 +1,207 @@
+.btn-explore{
+    align-items: center;
+    background-color: var(--clr-buttom);
+    border-radius: 2.5rem;
+    color: var(--clr-white);
+    display: flex;
+    font-family: var(--ff-mon);
+    font-size: var(--fs-main-text);
+    font-weight: var(--fw-md);
+    padding: 0.7rem 3.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.btn-explore:hover{
+    background-color: white;
+    color: var(--clr-buttom);
+}
+.details-buttom{
+    background-color: var(--clr-buttom);
+    border-radius: 3rem;
+    color: var(--clr-white);
+    display: block;
+    font-family: var(--ff-mon);
+    font-size: 1.4rem;
+    font-weight: var(--fw-md);
+    margin: auto;
+    margin-bottom: 2rem;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 50%;
+}
+.details-buttom:hover{
+    background-color: #090D18;
+    /* color: var(--clr-black); */
+}
+
+.carousel-arrow{
+    background: none;
+    border-style: none;
+    cursor: pointer;
+}
+.sign-in{
+    background: var(--clr-caracteristcs);
+    border-radius: 4rem;
+    color: var(--clr-white);
+    padding: 1rem 1.5rem;
+}
+
+.flags-img{
+    margin: auto;
+    width: 100%;
+   
+}
+
+  .dish-details-img{
+    border-radius: 1rem;
+    display: block;
+    width: 100%;
+}
+
+.button-orderNow{
+    border: solid var(--clr-buttom);
+    border-radius: 3rem;
+    border-width: .4rem;
+    color: var(--clr-buttom);
+    cursor: pointer;
+    font-family: var(--ff-mon);
+    font-size: 4rem;
+    font-weight: var(--fw-md);
+    margin: auto;
+    padding: 1rem;
+    text-decoration: none;
+    text-wrap: nowrap;
+    
+}
+
+.caracteristics-img{
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+/*Pag2*/
+.img-thumb {
+    display: flex;
+    padding: 0 1rem;
+    position: relative;
+}
+
+.dishes-img {
+    border-radius: 3rem;
+    width: 100%;
+}
+
+
+.tag-img {
+    height: 3rem;
+    width: 3rem;
+}
+
+
+.order-now-bottom {
+    background-color: var(--clr-caracteristcs);
+    border: solid var(--clr-buttom);
+    border-radius: 2rem;
+    border-width: 0.3rem;
+    color: var(--clr-buttom);
+
+    font-family: var(--ff-mon);
+    font-size: var(--fs-main-text);
+    font-weight: var(--fw-md);
+
+
+    justify-content: center;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    width: 80%;
+}
+.order-now-bottom:hover{
+    background-color: var(--clr-buttom);
+    color: var(--clr-caracteristcs);
+}
+
+
+
+
+.dish-price {
+    background: var(--clr-buttom);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    color: var(--clr-withe);
+
+    display: block;
+    font-family: var(--ff-mon);
+    font-size: 2rem;
+    left: 10%;
+    padding: 1% 10%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    transform: translate(10%, 0);
+
+}
+
+
+.return-bottom{
+    background-color: var(--clr-caracteristcs);
+    border: .2rem solid var(--clr-buttom);
+    border-radius: 2rem;
+    color: var(--clr-buttom);
+    cursor: pointer;
+    display: flex;
+    /* font-family: var(--ff-mon); */
+    font-size: 2.5rem;
+    left: 8rem;
+    overflow: hidden;
+    position: absolute;
+    top: 12rem;
+    transition: background-color .3s ease, left .3s ease-in-out;
+    
+    
+}
+.return-bottom:hover{
+    background-color: var(--clr-buttom);
+    left: 7rem;
+}
+.menu-input{
+    width: 13rem;
+    margin: auto;
+    font-family: var(--ff-mon);
+    border-radius: 0.5rem;
+    border-style: none;
+    margin-bottom: 2rem;
+    font-size: var(--fs-main-text);
+    text-align: center;
+}
+
+.input-div{
+    display: grid;
+}
+.input-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+    
+  
+
+
+
+
+.left-arrow{
+    color: var(--clr-buttom);
+    padding: 0 2rem 0 2rem;
+    text-decoration: none;
+  
+}
+.left-arrow:hover {
+    color: var(--clr-black); /* Cambia el color al pasar el cursor */
+}
+
+
+.line {
+    margin-top: 4rem;
+}
