@@ -1,3 +1,14 @@
+<?php 
+    require_once 'database.php';
+
+    // Reference: https://medoo.in/api/select
+    //variables que almacenan las platillos
+    $main_dishes = $database->select("tb_dishes","*",["id_category_dish"=>1]);
+    $salads = $database->select("tb_dishes","*",["id_category_dish"=>2]);
+    $desserts = $database->select("tb_dishes","*",["id_category_dish"=>3]);
+    $drinks = $database->select("tb_dishes","*",["id_category_dish"=>4]);
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,238 +56,67 @@
     <section class="category-section">
     <h2 id="salads" class="category-title">Salads</h2>
     <div class="category-container">
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/salad.jpg" alt="Food" >
-            <h3 class="food-text">Salmon salad</h3>
-            <p class="food-description">Its creamy texture and aroma make this dish an authentic explosion of flavors</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
+    <?php 
+    //ciclo para agregar cada platillo
+        foreach($salads as $salad){
+            echo "<div class='food-container'>";
+            echo "<img class= 'featured-img' src='./img/".$salad["img_dish"]."' alt='Food'>";
+            echo "<h3 class='food-text'>".$salad["n_dishes"]."</h3>";
+            echo "<p class='food-description'>".substr($salad["d_dish"], 0, 80)."...</p>";
+            echo "<a class='details-buttom' href='index2.php?id=".$salad["id_dishes"]."'>See details</a>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </section>
 
 <section class="category-section">
     <h2 id="main-dishes" class="category-title">Main Dishes</h2>
     <div class="category-container">
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/food-example.png" alt="Food" >
-            <h3 class="food-text">Fårikål</h3>
-            <p class="food-description"> It consists of pieces of mutton with bone, cabbage, whole black pepper</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
+        <?php 
+        //ciclo para agregar cada platillo
+        foreach($main_dishes as $main_dish){
+            echo "<div class='food-container'>";
+            echo "<img class= 'featured-img' src='./img/".$main_dish["img_dish"]."' alt='Food'>";
+            echo "<h3 class='food-text'>".$main_dish["n_dishes"]."</h3>";
+            echo "<p class='food-description'>".substr($main_dish["d_dish"], 0, 80)."...</p>";
+            echo "<a class='details-buttom' href='index2.php?id=".$main_dish["id_dishes"]."'>See details</a>";
+            echo "</div>";
+        }
+        ?>
+        
     </div>
 </section>
 <section class="category-section">
     <h2 id="desserts" class="category-title">Desserts</h2>
     <div class="category-container">
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" > 
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/dessert.jpg" alt="Food" >
-            <h3 class="food-text">Galette</h3>
-            <p class="food-description">It can be had hot, warm ort is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
+    <?php 
+    //ciclo para agregar cada platillo
+        foreach($desserts as $dessert){
+            echo "<div class='food-container'>";
+            echo "<img class= 'featured-img' src='./img/".$dessert["img_dish"]."' alt='Food'>";
+            echo "<h3 class='food-text'>".$dessert["n_dishes"]."</h3>";
+            echo "<p class='food-description'>".substr($dessert["d_dish"], 0, 80)."...</p>";
+            echo "<a class='details-buttom' href='index2.php?id=".$dessert["id_dishes"]."'>See details</a>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </section>
 <section class="category-section">
     <h2 id="drinks" class="category-title">Drinks</h2>
     <div class="category-container">
-        <div class="food-container">
-            <img class= "featured-img" src="./img/Aquavit.jpg" alt="Food" >
-            <h3 class="food-text">Aquavit</h3>
-            <p class="food-description">Is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/Aquavit.jpg" alt="Food" >
-            <h3 class="food-text">Aquavit</h3>
-            <p class="food-description">Is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/Aquavit.jpg" alt="Food" >
-            <h3 class="food-text">Aquavit</h3>
-            <p class="food-description">Is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/Aquavit.jpg" alt="Food" >
-            <h3 class="food-text">Aquavit</h3>
-            <p class="food-description">Is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/Aquavit.jpg" alt="Food" >
-            <h3 class="food-text">Aquavit</h3>
-            <p class="food-description">Is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
-        <div class="food-container">
-            <img class= "featured-img" src="./img/Aquavit.jpg" alt="Food" >
-            <h3 class="food-text">Aquavit</h3>
-            <p class="food-description">Is a Scandinavian distilled beverage usually 40% alcohol by volume</p>
-            <a class="details-buttom" href="index2.html">See details</a>
-        </div>
+    <?php 
+    //ciclo para agregar cada platillo
+        foreach($drinks as $drink){
+            echo "<div class='food-container'>";
+            echo "<img class= 'featured-img' src='./img/".$drink["img_dish"]."' alt='Food'>";
+            echo "<h3 class='food-text'>".$drink["n_dishes"]."</h3>";
+            echo "<p class='food-description'>".substr($drink["d_dish"], 0, 80)."...</p>";
+            echo "<a class='details-buttom' href='index2.php?id=".$drink["id_dishes"]."'>See details</a>";
+            echo "</div>";
+        }
+        ?>
     </div>
 </section>
 <footer class="footer-container">
