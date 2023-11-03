@@ -21,11 +21,12 @@
 }
 .food-text{
     font-family: var(--ff-mon);
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: var(--fw-md);
     margin: 0;
     padding: 1rem 0 1rem;
 }
+
 .food-description{
     font-family: var(--ff-mon);
     font-size: 1.2rem;

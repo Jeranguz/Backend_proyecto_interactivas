@@ -49,6 +49,40 @@
 }
 
 
+.swiper-hero {
+    display: flex;
+    width: 80vw;
+    margin: auto;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    justify-content: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+@media (max-width: 767.98px) {
+    .swiper-hero {
+        display: flex;
+        width: 100%;
+        margin: auto;
+        justify-content: center;
+        margin-top: 4rem;
+        margin-bottom: 4rem;
+    }
+
+}
+
+.swiper-hero .swiper-slide {
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    text-align: center;
+}
+
+
 .carrousel-arrows-container{
     display: flex;
     justify-content: space-between;
@@ -129,7 +163,7 @@
     margin: auto;
     margin-top: 7rem;
     text-align: center;
-    width: 88vw;
+    width: 70vw;
 
 }
 
