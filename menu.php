@@ -20,10 +20,10 @@
     <nav id="nav-category" class="navigation-category">
         <div  class="navigation-category-div">
             <ul class="navigation-list">
-                <li><a class="navigation-element navigation-category-element" href="#Salads">Salads</a></li>
-                <li><a class="navigation-element navigation-category-element" href="#Main dishes">Main Dishes</a></li>
-                <li><a class="navigation-element navigation-category-element" href="#Desserts">Desserts</a></li>
-                <li><a class="navigation-element navigation-category-element" href="#Drinks">Drinks</a></li>
+                <li><a class="navigation-element navigation-category-element" href="#Salad">Salads</a></li>
+                <li><a class="navigation-element navigation-category-element" href="#Main dish">Main Dishes</a></li>
+                <li><a class="navigation-element navigation-category-element" href="#Dessert">Desserts</a></li>
+                <li><a class="navigation-element navigation-category-element" href="#Drink">Drinks</a></li>
             </ul>
         </div>
     </nav>
@@ -54,9 +54,7 @@
                         echo "<p class='food-description'>".substr($item["d_dish"], 0, 80)."...</p>";
                         echo "<a class='details-buttom' href='index2.php?id=".$item["id_dishes"]."'>See details</a>";
                         echo "</div>";
-                    }
-                    
-                   
+                    }     
              echo "</div>";
             echo "</section>";
         } 

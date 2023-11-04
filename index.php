@@ -40,7 +40,7 @@
             <div class="swiper-wrapper">
             <?php 
                  foreach($items as $item){
-                    if($item["feautured"]==1){
+                    if($item["featured"]==1){
                 echo"<div class='swiper-slide'>";
                   echo"<div class='food-container'>";
                           echo"<img class= 'featured-img' src='./img/".$item["img_dish"]."' alt='Food'>";

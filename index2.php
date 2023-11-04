@@ -11,6 +11,7 @@
             "tb_dishes.n_dishes",
             "tb_dishes.d_dish",
             "tb_dishes.img_dish",
+            "tb_dishes.featured",
             "tb_dishes.price",
             "tb_dishes.id_category",
             "tb_dishes_category.c_description",
@@ -19,6 +20,7 @@
             "id_dishes" => $_GET["id"]
         ]);
     }
+    $amount_people = $database->select("tb_amount_people","*");
    
 ?>
 
@@ -69,7 +71,11 @@
           echo "    </div>";
           echo "    <div class='tag'>";
           echo "        <img class='tag-img' src='./img/heart.svg' alt=''>";
-          echo "        <span class='porpuse-text'> Feautured</span>";
+          if($item[0]["featured"]==1){
+            echo "        <span class='porpuse-text'>Featured</span>";
+          }else{
+            echo "        <span class='porpuse-text'>No featured</span>";
+          }
           echo "    </div>";
           echo "</section>";
         ?>
@@ -81,10 +87,13 @@
                 </div>
                 <div class="input-div">
                     <label class="porpuse-text" for="dish-modality">Select the modality</label>
-                    <select class="menu-input" name="dish-modality" id="modality">
-                        <option value="">Express</option>
-                        <option value="">Eat in restaurant</option>
-                        <option value="">Hola</option>
+                    <select class="menu-input" name="dish-modality" id="dish-modality">
+                        <?php 
+                            foreach($amount_people as $amout){
+                                echo "<option value='".$amout["id_amount_people"]."'>".$amout["n_category_people"]."</option>";
+                            }
+                        ?>
+                        
                     </select>
                 </div>               
             </div>
