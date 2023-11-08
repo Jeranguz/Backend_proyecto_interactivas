@@ -50,8 +50,8 @@
                     foreach($items as $item){
                         echo "<div class='food-container'>";
                         echo "<img class= 'featured-img' src='./img/".$item["img_dish"]."' alt='Food'>";
-                        echo "<h3 class='food-text'>".$item["n_dishes"]."</h3>";
-                        echo "<p class='food-description'>".substr($item["d_dish"], 0, 80)."...</p>";
+                        echo "<h3 class='food-text'>".substr($item["n_dishes"], 0, 17)."...</h3>";
+                        echo "<p class='food-description'>".substr($item["d_dish"], 0, 70)."...</p>";
                         echo "<a class='details-buttom' href='index2.php?id=".$item["id_dishes"]."'>See details</a>";
                         echo "</div>";
                     }     

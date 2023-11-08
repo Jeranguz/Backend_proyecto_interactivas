@@ -53,21 +53,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Add Dish</title>
 </head>
 <body>
-    <h2>Add Dish</h2>
+    <h2 class="featured-text">Add Dish</h2>
     <form method="post" action="add-dish.php" enctype="multipart/form-data">
         <div>
-            <label for="dish_name">Dish name</label>
+            <label class="porpuse-text" for="dish_name">Dish name</label>
             <input id="n_dishes" name="n_dishes" type="text">
         </div>
         <div>
-            <label for="d_dish">Dish description</label>
+            <label class="porpuse-text" for="d_dish">Dish description</label>
             <textarea id="d_dish" name="d_dish" cols="30" rows="10"></textarea>
         </div>
         <div>
-            <label for="id_category">Dish category</label>
+            <label class="porpuse-text" for="id_category">Dish category</label>
             <select name="id_category" id="id_category">
                 <?php 
                     foreach($categories as $category){
@@ -77,7 +78,7 @@
             </select>
         </div>
         <div>
-            <label for="id_amount_people">Dish amount people</label>
+            <label class="porpuse-text" for="id_amount_people">Dish amount people</label>
             <select name="id_amount_people" id="id_amount_people">
                 <?php 
                     foreach($peoples as $people){
@@ -87,11 +88,11 @@
             </select>
         </div>
         <div>
-            <label for="price">Dish price</label>
+            <label class="porpuse-text" for="price">Dish price</label>
             <input id="price" name="price" type="text">
         </div>
         <div>
-            <label for="img_dish">Destination Image</label>
+            <label class="porpuse-text" for="img_dish">Destination Image</label>
             <img id="preview" src="./imgs/destination-placeholder.webp" alt="Preview">
             <input id="img_dish" type="file" name="img_dish" onchange="readURL(this)">
         </div>
