@@ -20,7 +20,7 @@
             "id_dishes" => $_GET["id"]
         ]);
     }
-    $amount_people = $database->select("tb_amount_people","*");
+    $modalities = $database->select("tb_modality","*");
    
 ?>
 
@@ -89,8 +89,8 @@
                     <label class="porpuse-text" for="dish-modality">Select the modality</label>
                     <select class="menu-input" name="dish-modality" id="dish-modality">
                         <?php 
-                            foreach($amount_people as $amout){
-                                echo "<option value='".$amout["id_amount_people"]."'>".$amout["n_category_people"]."</option>";
+                            foreach($modalities as $modality){
+                                echo "<option value='".$modality["id_modality"]."'>".$modality["n_modality"]."</option>";
                             }
                         ?>
                         

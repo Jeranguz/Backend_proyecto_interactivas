@@ -9,6 +9,7 @@
 @import url('./layout/footer.css');
 
 @import url('./components/components.css');
+@import url('./themes/admin.css');
 html{
     scroll-behavior: smooth;
 }
