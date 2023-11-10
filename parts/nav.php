@@ -14,7 +14,7 @@
                     <li><a class="navigation-element" href="#">Location</a></li>
                 </ul>
                 <ul class="navigation-list navigation-login">
-                    <li><a class="sign-in navigation-element" href="#">Sign up</a></li>
+                    <li><a class="sign-in navigation-element" href="add_user.php">Sign up</a></li>
                     <li>
                         <a class="navigation-element" href="#">
                             <img class="cart" src="./img/cart.png" alt="cart">

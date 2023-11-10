@@ -71,3 +71,48 @@ input, textarea, select{
     margin: auto;
     padding: 2rem 0;
 }
+
+
+
+/*pagina login*/
+.logoOpt2{
+    margin-top: -3rem;
+    width: 9rem;
+    
+}
+
+.login-container{
+    display: grid;
+    width: 22rem;
+    margin: auto;
+    margin-top: 7rem;
+    background-color: hsl(218, 31%, 26%);
+}
+
+.title-conatiner{
+    display: grid;
+    margin: auto;
+    width: 100%;
+    background-color: var(--clr-buttom);
+    text-align: center;
+}
+
+.form-input{
+    background: transparent; 
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.form-container{
+    margin: auto;
+}
+
+.register-btn{
+    border: none;
+}
+
+
+

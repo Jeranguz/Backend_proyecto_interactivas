@@ -75,7 +75,9 @@
         "img_dish"=>$item,
         "price"=>rand (1*10, 70*10)/10,
         "d_dish"=>$menu_item_descriptions[$index],
-        "id_amount_people"=>rand(1, 3)
+        "id_amount_people"=>rand(1, 3),
+        "id_category"=>rand(1, 4),
+        "featured"=>rand(0, 1),
     ]);
 }
 ?>
