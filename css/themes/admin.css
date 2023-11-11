@@ -79,6 +79,7 @@ input, textarea, select{
 
 
 /*pagina login*/
+
 .logoOpt2{
     margin-top: -3rem;
     width: 9rem;
@@ -102,21 +103,64 @@ input, textarea, select{
 }
 
 .form-input{
-    background: transparent; 
+    display: grid;
+    background: transparent;
     border: none;
     outline: none;
     border-bottom: 1px solid black;
     border-radius: 0px;
     width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: 1rem;
+    padding: 0.5rem 0;
 }
 
 .form-container{
     margin: auto;
+    margin-top: 1rem;
+    display: grid;
+    align-content: center;
+    align-items: center;
 }
 
 .register-btn{
     border: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
+.logs{
+    display: flex;
+    width: 50%;
+    margin: auto;
+    gap: 5rem;
+}
+
+.form-label{
+    position: absolute;
+    margin-top: 0.7rem;
+    font-size: 1rem;
+    transition: .5s;
+}
+          .form-input:focus ~ .form-label,
+          .form-input:valid ~ .form-label{
+            font-size: .9rem;
+            margin-top: -.7rem;
+            color: #03e9f4;
+           
+}
+  
+
+
+
+
+
+
+
+
 
 
 
