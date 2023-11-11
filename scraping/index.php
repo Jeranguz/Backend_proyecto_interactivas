@@ -37,7 +37,7 @@
              if($desserts_scraping_count == 0) break;
 
              $menu_item_names[] = trim($title[0]->plaintext);
-             $menu_item_descriptions[] = $description[0]->plaintext;
+             $menu_item_descriptions[] = trim($description[0]->plaintext);
             
              $filename = strtolower(trim($title[0]->plaintext));
              $filename = str_replace(' ', '-', $filename);
