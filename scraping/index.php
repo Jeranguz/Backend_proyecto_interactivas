@@ -64,9 +64,9 @@
      }
 
     //  Guardar las imagenes
-     foreach ($filenames as $index=>$image){
-        file_put_contents("../img/".$image, file_get_contents($image_urls[$index]));
-    }
+    //  foreach ($filenames as $index=>$image){
+    //     file_put_contents("../img/".$image, file_get_contents($image_urls[$index]));
+    // }
 
     // Meter a la base de datos
     foreach($filenames as $index=>$item){

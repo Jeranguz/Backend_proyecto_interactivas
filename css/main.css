@@ -34,17 +34,8 @@ body{
     color: var(--clr-buttom);
 }
 
-.admin-botton{
-    width: 9rem;
-    justify-content: center;
-}
-.admin-btn-container{
-    gap: 2rem;
-    text-align: center;
-    display: grid;
-    justify-content: center;
-    margin-top: 6rem;
-}
+
+
 
 @media (max-width: 1136px){
     .top-nav{

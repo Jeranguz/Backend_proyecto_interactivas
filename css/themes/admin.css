@@ -43,10 +43,11 @@ input, textarea, select{
     color: var(--clr-white);
 }
 .img{
-    width: 16rem;
+    width: 6rem;
+    height: 4rem;
 }
-.td-food{
-    display: grid;
+.form-img{
+    height: 20.2rem;
 }
 .card-background{
     margin: auto;
@@ -70,6 +71,9 @@ input, textarea, select{
 .btn-container{
     margin: auto;
     padding: 2rem 0;
+}
+.body{
+    
 }
 
 

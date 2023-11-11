@@ -31,17 +31,17 @@ if ($_POST) {
             $filename = str_replace('.', '', $filename);
             $filename = str_replace(' ', '-', $filename);
             $img = $filename . "." . $file_ext;
-            echo $img;
             move_uploaded_file($file_tmp, "../img/" . $img);
 
-            //    $database->insert("tb_dishes",[
-            //        "n_dishes"=>$_POST["n_dishes"],
-            //        "id_category"=>$_POST["id_category"],
-            //        "id_amount_people"=>$_POST["id_amount_people"],
-            //        "price"=>$_POST["price"],
-            //        "d_dish"=>$_POST["d_dish"],
-            //        "img_dish"=>"$img"
-            //    ]);
+               $database->insert("tb_dishes",[
+                   "n_dishes"=>$_POST["n_dishes"],
+                   "id_category"=>$_POST["id_category"],
+                   "id_amount_people"=>$_POST["id_amount_people"],
+                   "price"=>$_POST["price"],
+                   "d_dish"=>$_POST["d_dish"],
+                   "featured"=>$_POST["featured"],
+                   "img_dish"=>"$img"
+               ]);
         }
     }
     // Reference: https://medoo.in/api/insert
@@ -136,7 +136,7 @@ if ($_POST) {
             </div>
             <div class="form-items">
                 <label class="porpuse-text" for="img_dish">Destination Image</label>
-                <img id="preview" src="../img/img-placeholder.webp" alt="Preview">
+                <img class="form-img" id="preview" src="../img/img-placeholder.webp" alt="Preview">
                 <input id="img_dish" type="file" name="img_dish" onchange="readURL(this)">
             </div>
             <div class="btn-container">

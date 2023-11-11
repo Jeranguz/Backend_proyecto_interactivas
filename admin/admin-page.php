@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
-    <title>Document</title>
+    <title>Admin Page</title>
 </head>
+
 <body>
-<nav class="top-nav">
+    <nav class="top-nav">
         <a href="../index.php"><img class="logo" src="../img/logo.png" alt="Restaurant logo"></a>
         <input class="mobile-check" type="checkbox">
         <label class="mobile-btn">
@@ -31,13 +33,13 @@
             </ul>
         </div>
     </nav>
-
-        <h1 class="featured-text">Admin options</h1>
+    <div class="card-background">
+        <h1 class="featured-text admin-title">Admin options</h1>
         <div class="admin-btn-container">
             <a class="btn-explore admin-botton" href="dish-list.php">Dish List</a>
             <a class="btn-explore admin-botton" href="add-dish.php">Add Dish</a>
-            <a class="btn-explore admin-botton" href="edit-dish.php">Edit Dish</a>
-            <a class="btn-explore admin-botton" href="delete-dish.php">Delete Dish</a>
         </div>
+    </div>
 </body>
+
 </html>
