@@ -7,6 +7,7 @@ $dishes = $database->select("tb_dishes",[
         "tb_dishes.n_dishes",
         "tb_dishes.id_dishes",
         "tb_dishes.price",
+        "tb_dishes.featured",
         "tb_dishes.img_dish",
         "tb_dishes_category.c_description"
     ]);
@@ -48,7 +49,7 @@ $dishes = $database->select("tb_dishes",[
         </div>
     </nav>
     <input class="return-bottom" type="button" onclick="history.back();" value="←">
-    <div class="card-background">
+    <div class="list-background">
 
         <h2 class="featured-text">Registered Dishes</h2>
         <div class="table-div">
@@ -58,19 +59,24 @@ $dishes = $database->select("tb_dishes",[
                         <td>Name</td>
                         <td>Category</td>
                         <td>Price</td>
-                        <td>Image</td>
+                        <td>Featured</td>
                         <td>Actions</td>
+                        <img src="" alt="">
                     </tr>
                 </thead>
                 <tbody class="body">
                     <?php
                     foreach ($dishes as $dish) {
                         echo "<tr>";
-                        echo "<td class='td-food'>" . $dish["n_dishes"] . "  </td>";
-                        echo "<td class='td-food'>" . $dish["c_description"] . "  </td>";
-                        echo "<td class='td-food'>$" . $dish["price"] . "  </td>";
-                        echo "<td><img class='img' src='../img/" . $dish["img_dish"] . "' alt='" . $dish["n_dishes"] . " img'></td>";
-                        echo "<td><a class='action-button' href='edit-dish.php?id=" . $dish["id_dishes"] . "'>Edit</a> <a class='action-button' href='delete-dish.php?id=" . $dish["id_dishes"] . "'>Delete</a></td>";
+                        echo "<td>" . $dish["n_dishes"] . "  </td>";
+                        echo "<td>" . $dish["c_description"] . "  </td>";
+                        echo "<td>$" . $dish["price"] . "  </td>";
+                        if($dish["featured"]== 1){
+                            echo "<td>Yes</td>";
+                        }else{
+                            echo "<td>No</td>";
+                        }
+                        echo "<td><a class='action-button' href='edit-dish.php?id=" . $dish["id_dishes"] . "'><img class='action-img miSvg' src='../img/edit-img.svg' alt=''></a> <a class='action-button' href='delete-dish.php?id=" . $dish["id_dishes"] . "'><img class='action-img miSvg' src='../img/delete-img.svg' alt=''></a></td>";
                         echo "</tr>";
                     }
                     // <img class='img' src='../img/" . $dish["img_dish"] . "' alt='" . $dish["n_dishes"] . " img'>

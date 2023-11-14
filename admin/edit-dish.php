@@ -10,6 +10,7 @@ if ($_GET) {
         "[>]tb_dishes_category" => ["id_category" => "id_category"],
         "[>]tb_amount_people" => ["id_amount_people" => "id_amount_people"]
     ], [
+        "tb_dishes.id_dishes",
         "tb_dishes.n_dishes",
         "tb_dishes.d_dish",
         "tb_dishes.img_dish",
@@ -25,9 +26,9 @@ if ($_GET) {
 }
 
 if ($_POST) {
-
-    if (isset($_FILES["img_dish"])) {
-
+    $data = $database->select("tb_dishes","*", ["id_dishes"=>$_POST["id"]]);
+    if (isset($_FILES["img_dish"]) && $_FILES["img_dish"]["name"] !="") {
+        
         $errors = [];
         $file_name = $_FILES["img_dish"]["name"];
         $file_size = $_FILES["img_dish"]["size"];
@@ -51,19 +52,24 @@ if ($_POST) {
             $filename = str_replace(' ', '-', $filename);
             $img = $filename . "." . $file_ext;
             move_uploaded_file($file_tmp, "../img/" . $img);
-
-            $database->insert("tb_dishes", [
-                "n_dishes" => $_POST["n_dishes"],
-                "id_category" => $_POST["id_category"],
-                "id_amount_people" => $_POST["id_amount_people"],
-                "price" => $_POST["price"],
-                "d_dish" => $_POST["d_dish"],
-                "featured" => $_POST["featured"],
-                "img_dish" => "$img"
-            ]);
-        }
+        } 
+        
+    }else{
+        $img = $data[0]["img_dish"];
     }
-    
+    $database->update("tb_dishes", [
+        "n_dishes" => $_POST["n_dishes"],
+        "id_category" => $_POST["id_category"],
+        "id_amount_people" => $_POST["id_amount_people"],
+        "price" => $_POST["price"],
+        "d_dish" => $_POST["d_dish"],
+        "featured" => $_POST["featured"],
+        "img_dish" => $img
+    ], [
+        "id_dishes" => $_POST["id"]
+    ]);
+    header("location: dish-list.php");
+
 
 }
 ?>
@@ -75,6 +81,9 @@ if ($_POST) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <title>Edit Dish</title>
+    <?php 
+        echo $message;
+    ?>
 </head>
 
 <body>
@@ -106,7 +115,7 @@ if ($_POST) {
 
         <input class="return-bottom" type="button" onclick="history.back();" value="←">
         <h2 class="featured-text">Edit Dish</h2>
-        <form class="form" method="post" action="add-dish.php" enctype="multipart/form-data">
+        <form class="form" method="post" action="edit-dish.php" enctype="multipart/form-data">
             <div class="form-items">
                 <label class="porpuse-text" for="dish_name">Dish name</label>
                 <input id="n_dishes" name="n_dishes" type="text" value="<?php echo $item[0]["n_dishes"] ?>">
@@ -156,24 +165,27 @@ if ($_POST) {
                 <div class="form-items">
                     <label class="porpuse-text" for="featured">Is featured?</label>
                     <select name="featured" id="featured">
-                        <?php 
-                            if ($item[0]["featured"] == 1){
-                                echo "<option value='1'>Yes, it is</option>";
-                            }else{
-                                echo "<option value='0'>No, it isn't</option>";
-                            }
+                        <?php
+                        if ($item[0]["featured"] == 1) {
+                            echo "<option value='1' selected>Yes, it is</option>";
+                            echo "<option value='0'>No, it isn't</option>";
+                        } else {
+                            echo "<option value='1'>Yes, it is</option>";
+                            echo "<option value='0'selected>No, it isn't</option>";
+                        }
                         ?>
                     </select>
                 </div>
             </div>
             <div class="form-items">
                 <label class="porpuse-text" for="img_dish">Destination Image</label>
-                <img class="form-img" id="preview" src="../img/<?php echo $item[0]["img_dish"];?>" alt="Preview">
+                <img class="form-img" id="preview" src="../img/<?php echo $item[0]["img_dish"]; ?>" alt="Preview">
                 <input id="img_dish" type="file" name="img_dish" onchange="readURL(this)">
             </div>
             <div class="btn-container">
-                <input class="btn-explore" type="submit" value="Add new dish :)">
+                <input class="btn-explore" type="submit" value="Edit dish :)">
             </div>
+            <input type="hidden" name="id" value="<?php echo $item[0]["id_dishes"] ?>">
         </form>
     </div>
     <script>

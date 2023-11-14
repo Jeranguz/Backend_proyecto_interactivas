@@ -4,17 +4,21 @@ thead{
     
 }
 td{
-    padding: .7rem;
-    width: 100%;
+    padding: 2rem;
+    font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
+    border-bottom: solid 1px white;
 }
 table{
-    width: 30rem;
+    width: 93%;
+    border-collapse: collapse;
 }
 input, textarea, select{
     padding: .5rem;
     border-radius: .5rem;
 }
+
+
 .form-items {
     display: flex;
     flex-direction: column;
@@ -34,8 +38,11 @@ input, textarea, select{
 }
 
 .table-div{
-    display: grid;
+    width: 100%;
+    display: flex;
+    align-items: center;
     justify-content: center;
+
 }
 
 .action-button{
@@ -57,6 +64,19 @@ input, textarea, select{
     display: grid;
     justify-content: center;
     margin-top: 3rem;
+}
+.action-img{
+    width: 2.5rem;
+    height: 100%;  
+}
+
+.list-background{
+    margin: auto;
+    background: var(--clr-main);
+    width: 79rem;
+    border-radius: 6rem;
+    margin-top: 3rem;
+    overflow: hidden;
 }
 .admin-title{
     padding-top: 2rem;
