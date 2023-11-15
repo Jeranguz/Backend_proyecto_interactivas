@@ -91,75 +91,122 @@
 <body>
   
       <main class="logs">
-        <section class="login-container">
+
+    
+         <section id="register" class="login-container">
            
             <div class="title-conatiner">
-           <!--  <img class="logoOpt2" src="./img/logo.png" alt="Restaurant logo">    -->     
-            <h1 class="add-user-title">Sign In</h1>
+            <h1 class="add-user-title">Register</h1>
             </div>
          
            <form class="form-container"  method="post" action="add_user.php">
                         <div class='form-items'>                  
                                 <input id='fullname' class='form-input' type='text' name='fullname' required="">
-                                <label class='form-label' for='fullname'>Fullname</label>
+                                <label class='' for='fullname'>Fullname</label>
                         </div>
                         <div class='form-items'>
                          
                                 <input id='email' class='form-input' type='text' name='email' required="">
-                                <label class='form-label' for='email'>Email Address</label>                                 
+                                <label class='' for='email'>Email Address</label>                                 
                           
                         </div>
                         <div class='form-items'>
                                                                              
                                 <input id='username' class='form-input' type='text' name='username' required="">
-                                <label class='form-label' for='username'>Username</label> 
+                                <label class='' for='username'>Username</label> 
                            
                         </div>
                         <div class='form-items'>                     
                                 <input id='password' class='form-input' type='password' name='password' required="">
-                                <label class='form-label' for='password'>Password</label>    
+                                <span onclick="togglePassword()"><img class="togglePassword" id="togglePassword" src="./img/eye-password-see-view-svgrepo-com.svg" alt=""></span>
+                                <label class='' for='password'>Password</label>    
                         </div>
                         <div class='form-items'>
-                            <div>
-                                <input class="btn-explore register-btn" type='submit' value="Sing in">
-                            </div>
+                            
+                                <input class="btn-explore register-btn" type='submit' value="Sign up">
+                            
                         </div>
                         <p><?php echo $message; ?></p>
                         <input type="hidden" name="register" value="1">
+                        <p>Do you have an account? <span class="span">Login</span> </p>
                     </form>
-        </section>
+        </section> 
 
-        
-        <section class="login-container">
+        <button class="return-bottom">
+            <a href="index.php" class="left-arrow">←</a>
+        </button>
+        <section  class="login-container">
            
             <div class="title-conatiner">
-           <!--  <img class="logoOpt2" src="./img/logo.png" alt="Restaurant logo">    -->     
+         
             <h1 class="add-user-title">Login</h1>
             </div>
          
            <form class="form-container"  method="post" action="add_user.php">
-                       
-                      
                         <div class='form-items'>
-                                <input id='username' class='form-input' type='text' name='username' required="">
+                                <input id='usernameLog' class='form-input' type='text' name='username' required="">
                                 <label class='form-label' for='username'>Username</label>              
                         </div>
                         <div class='form-items'>
-                                <input id='password' class='form-input' type='password' name='password' required="">
-                                <label class='form-label' for='password'>Password</label>           
+                                <input id='passwordLog' class='form-input' type='password' name='password' required="">
+                                <span onclick="togglePassword()"><img class="togglePassword" id="togglePassword1" src="./img/eye-password-see-view-svgrepo-com.svg" alt=""></span>
+                                <label class='form-label' for='password'>Password</label>
+                                <div class="flex-row">
+                                    <div>
+                                        <input type="checkbox">
+                                        <label>Remember me </label>
+                                    </div>
+                                    <span class="span">Forgot password?</span>
+                                </div>
                               
                         </div>
                         <div class='form-items'>
-                            <div>
-                                <input class="btn-explore register-btn" type='submit' value="Login">
-                            </div>
+                                <input class="btn-explore register-btn" type='submit' value="Sign In">
                         </div>
-                        <p><?php echo $message; ?></p>
                         <input type="hidden" name="login" value="1">
                     </form>
+
+                    <p>Don't have an account? <a class="span" href="/add.user.php?id='login'"> Sign Up  </a></p>
+
+                    <p>Or With</p>
+
+                        <div class="flex-row">
+                            <a class= "btn-login" href="">
+                                <img class= "icon-login" src="./img/google-color.svg" alt="">
+                            </a> 
+                            <a class= "btn-login" href="">
+                                <img class= "icon-login" src="./img/facebook-color.svg" alt="">
+                            </a> 
+
+                        </div>
         </section>
 
       </main>  
+
+           <script>
+            /* eyeSwitch */
+            function togglePassword() {
+                const passwordInput = document.getElementById("password");
+                const toggleIcon = document.getElementById("togglePassword");
+                const passwordInput1 = document.getElementById("passwordLog");
+                const toggleIcon1 = document.getElementById("togglePassword1");
+
+                if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                passwordInput1.type = "text";
+                toggleIcon.src = "./img/eye-password-show-svgrepo-com.svg"; 
+                toggleIcon1.src = "./img/eye-password-show-svgrepo-com.svg"; 
+                } else {
+                passwordInput.type = "password";
+                passwordInput1.type = "password";
+                toggleIcon.src = "./img/eye-password-see-view-svgrepo-com.svg";
+                toggleIcon1.src = "./img/eye-password-see-view-svgrepo-com.svg";
+                }
+            }
+               /* eyeSwitch */
+
+         
+            </script>
     
    
 </body>
