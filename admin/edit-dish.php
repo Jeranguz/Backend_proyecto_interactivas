@@ -25,6 +25,8 @@ if ($_GET) {
     ]);
 }
 
+
+
 if ($_POST) {
     $data = $database->select("tb_dishes","*", ["id_dishes"=>$_POST["id"]]);
     if (isset($_FILES["img_dish"]) && $_FILES["img_dish"]["name"] !="") {
@@ -113,7 +115,7 @@ if ($_POST) {
     </nav>
     <div class="card-background">
 
-        <input class="return-bottom" type="button" onclick="history.back();" value="←">
+        <input class="return-bottom return-btn-admin" type="button" onclick="history.back();" value="←">
         <h2 class="featured-text">Edit Dish</h2>
         <form class="form" method="post" action="edit-dish.php" enctype="multipart/form-data">
             <div class="form-items">

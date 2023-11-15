@@ -85,7 +85,7 @@ if ($_POST) {
         </nav>
     <div class="card-background">
 
-        <input class="return-bottom" type="button" onclick="history.back();" value="←">
+        <input class="return-bottom return-btn-admin" type="button" onclick="history.back();" value="←">
         <h2 class="featured-text">Add Dish</h2>
         <form class="form" method="post" action="add-dish.php" enctype="multipart/form-data">
             <div class="form-items">

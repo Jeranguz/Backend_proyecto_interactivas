@@ -42,9 +42,7 @@
     </header>
 
     <main class="pag2">
-        <button class="return-bottom">
-            <a href="index.php" class="left-arrow">←</a>
-        </button>
+        <input class="return-bottom return-btn-admin" type="button" onclick="history.back();" value="←">
 
 
         <section id="buy" class="buy-dish-container">
