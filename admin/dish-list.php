@@ -48,9 +48,8 @@ $dishes = $database->select("tb_dishes",[
             </div>
         </nav>
     <input class="return-bottom return-btn-admin" type="button" onclick="history.back();" value="←">
-    <div class="list-background">
 
-        <h2 class="featured-text">Registered Dishes</h2>
+        <h2 class="featured-text admin-title">Registered Dishes</h2>
         <div class="table-div">
             <table>
                 <thead>
@@ -60,7 +59,6 @@ $dishes = $database->select("tb_dishes",[
                         <td>Price</td>
                         <td>Featured</td>
                         <td>Actions</td>
-                        <img src="" alt="">
                     </tr>
                 </thead>
                 <tbody class="body">
@@ -84,7 +82,6 @@ $dishes = $database->select("tb_dishes",[
                 </tbody>
             </table>
         </div>
-    </div>
 
 </body>
 

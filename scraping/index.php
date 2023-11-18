@@ -41,6 +41,7 @@
             
              $filename = strtolower(trim($title[0]->plaintext));
              $filename = str_replace(' ', '-', $filename);
+             $filename = str_replace('&#39;', '', $filename);
              $filenames[] = $filename.".jpg";
 
              $desserts_scraping_count--;

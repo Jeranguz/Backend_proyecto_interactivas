@@ -33,15 +33,15 @@ if ($_POST) {
             $img = $filename . "." . $file_ext;
             move_uploaded_file($file_tmp, "../img/" . $img);
 
-               $database->insert("tb_dishes",[
-                   "n_dishes"=>$_POST["n_dishes"],
-                   "id_category"=>$_POST["id_category"],
-                   "id_amount_people"=>$_POST["id_amount_people"],
-                   "price"=>$_POST["price"],
-                   "d_dish"=>$_POST["d_dish"],
-                   "featured"=>$_POST["featured"],
-                   "img_dish"=>"$img"
-               ]);
+            $database->insert("tb_dishes", [
+                "n_dishes" => $_POST["n_dishes"],
+                "id_category" => $_POST["id_category"],
+                "id_amount_people" => $_POST["id_amount_people"],
+                "price" => $_POST["price"],
+                "d_dish" => $_POST["d_dish"],
+                "featured" => $_POST["featured"],
+                "img_dish" => "$img"
+            ]);
         }
     }
     // Reference: https://medoo.in/api/insert
@@ -59,30 +59,30 @@ if ($_POST) {
 </head>
 
 <body>
-<nav class="top-nav">
-            <a href="../index.php"><img class="logo" src="../img/logo.png" alt="Restaurant logo"></a>
-            <input class="mobile-check" type="checkbox">
-            <label class="mobile-btn">
-                <span></span>
-            </label>
-            <div class="navigation-lists">
-                <ul class="navigation-list">
-                    <li><img class="log-navigation-list" src="../img/logo.png" alt=""></li>
-                    <li><a class="navigation-element" href="#">About Us</a></li>
-                    <li><a class="navigation-element" href="../menu.php">Menu</a></li>
-                    <li><a class="navigation-element" href="#">Reviews</a></li>
-                    <li><a class="navigation-element" href="#">Location</a></li>
-                </ul>
-                <ul class="navigation-list navigation-login">
-                    <li><a class="sign-in navigation-element" href="#">Sign up</a></li>
-                    <li>
-                        <a class="navigation-element" href="#">
-                            <img class="cart" src="../img/cart.png" alt="cart">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <nav class="top-nav">
+        <a href="../index.php"><img class="logo" src="../img/logo.png" alt="Restaurant logo"></a>
+        <input class="mobile-check" type="checkbox">
+        <label class="mobile-btn">
+            <span></span>
+        </label>
+        <div class="navigation-lists">
+            <ul class="navigation-list">
+                <li><img class="log-navigation-list" src="../img/logo.png" alt=""></li>
+                <li><a class="navigation-element" href="#">About Us</a></li>
+                <li><a class="navigation-element" href="../menu.php">Menu</a></li>
+                <li><a class="navigation-element" href="#">Reviews</a></li>
+                <li><a class="navigation-element" href="#">Location</a></li>
+            </ul>
+            <ul class="navigation-list navigation-login">
+                <li><a class="sign-in navigation-element" href="#">Sign up</a></li>
+                <li>
+                    <a class="navigation-element" href="#">
+                        <img class="cart" src="../img/cart.png" alt="cart">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="card-background">
 
         <input class="return-bottom return-btn-admin" type="button" onclick="history.back();" value="←">
