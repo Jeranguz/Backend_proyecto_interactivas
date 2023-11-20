@@ -26,7 +26,7 @@
             ?>
 
             <li>
-                <a class="navigation-element" href="#">
+                <a class="navigation-element" href="cart.php">
                     <img class="cart" src="./img/cart.png" alt="cart">
                 </a>
             </li>

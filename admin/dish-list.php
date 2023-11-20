@@ -50,6 +50,7 @@ $dishes = $database->select("tb_dishes",[
     <input class="return-bottom return-btn-admin" type="button" onclick="history.back();" value="←">
 
         <h2 class="featured-text admin-title">Registered Dishes</h2>
+        
         <div class="table-div">
             <table>
                 <thead>
