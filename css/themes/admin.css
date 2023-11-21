@@ -276,6 +276,26 @@ tr:nth-child(even){
     width: 1rem;
   }
 
+  .user-name{
+    background-color: transparent;
+    color:  #03e9f4;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: var(--fs-main-text);
+  }
+
+  .pr{
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+ .img-user{
+    height: 1.6rem;
+    width: 100%;
+ }
+
+
 
   
 

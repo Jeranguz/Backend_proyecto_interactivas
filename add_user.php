@@ -14,10 +14,10 @@
                     if(password_verify($_POST["password"], $user[0]["pwd"])){
                         session_start();
                         $_SESSION["isLoggedIn"] = true;
-                        $_SESSION["fullname"] = $user[0]["fullname"];
+                        $_SESSION["fullname"] = $user[0]["usr"];
                         header("location: index.php");
                     }else{
-                        $message = "wrong username or password";
+                        $message = "Wrong username or password";
                     }
             }else{
                 $message = "wrong username or password";
@@ -47,6 +47,32 @@
                 header("location: add_user.php");
             }
 
+            }
+        }
+
+        if(isset($_POST["fw-pw"])){
+            $email = $database->select("tb_users","*",[
+                "email"=>$_POST["email"]
+            ]);
+
+            if(count($email) > 0){
+                $allowedCharacters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+                $pass = '';
+                    for ($i = 0; $i < 8; $i++) {
+                        $pass .= $allowedCharacters[rand(0, strlen($allowedCharacters) - 1)];
+                    }
+    
+                $passHash = password_hash($pass, PASSWORD_DEFAULT, ['cost' => 12]);
+
+                $database->update("tb_users", [
+                    "pwd" => $passHash
+                ], [
+                    "email"=>$_POST["email"]
+                ]);
+                
+                $message = "New Password : $pass" ;
+            }else{
+                $message = "Wrong email";
             }
         }
     }
@@ -97,15 +123,14 @@
         </button>
         <?php
         if($_GET){
-            if($_GET["id"]="register"){
+            if($_GET["id"]=="register"){
                 echo  
-               
                 "<section id='register' class='login-container'>"
             ."<div class='title-conatiner'>"
             ."<h1 class='add-user-title'>Register</h1>"
             ."</div>"
          
-           ."<form class='form-container'  method='post' action='add_user.php'>"
+           ."<form class='form-container'  method='post' action='add_user.php?id=register'>"
                         ."<div class='form-items'>"                 
                                 ."<input id='fullname' class='form-input' type='text' name='fullname' required=''>"
                                 ."<label class='' for='fullname'>Fullname</label>"
@@ -132,11 +157,35 @@
                                 ."<input class='btn-explore register-btn' type='submit' value='Sign up'>"
                             
                         ."</div>"
-                        ."<p><?php echo $message; ?></p>"
+                        ."<p>$message</p>"
                         ."<input type='hidden' name='register' value='1'>"
                         ."<p>Do you have an account? <a class='span' href='add_user.php'> Login  </a> </p>"
                     ."</form>"
         ."</section>";     
+            }
+            if($_GET["id"]=="fg-pw"){
+                echo  
+            "<section id='register' class='login-container'>"
+            ."<div class='title-conatiner'>"
+            ."<h1 class='add-user-title'>Password</h1>"
+            ."</div>"
+         
+           ."<form class='form-container'  method='post' action='add_user.php?id=fg-pw'>"
+                        ."<div class='form-items'>"
+                         
+                                ."<input id='email' class='form-input' type='text' name='email' required=''>"
+                                ."<label class='' for='email'>Email Address</label>"                                 
+                          
+                        ."</div>"
+                        ."<div class='form-items'>"
+                            
+                                ."<input class='btn-explore register-btn' type='submit' value='Submit'>"
+                            
+                        ."</div>"
+                        ."<p>$message</p>"
+                        ."<input type='hidden' name='fw-pw' value='1'>"
+                    ."</form>"
+        ."</section>";      
             }
             }else{
                 echo 
@@ -159,17 +208,18 @@
                                             ."<input type='checkbox'>"
                                             ."<label>Remember me </label>"
                                         ."</div>"
-                                        ."<span class='span'>Forgot password?</span>"
+                                        ."<a href='add_user.php?id=fg-pw' class='span'>Forgot password?</a>"
                                     ."</div>"
                                   
                             ."</div>"
                             ."<div class='form-items'>"
                                     ."<input class='btn-explore register-btn' type='submit' value='Sign In'>"
                             ."</div>"
+                            ."<p>$message</p>"
                            ."<input type='hidden' name='login' value='1'>"
                         ."</form>"
     
-                        ."<p>Don't have an account? <a class='span' href='add_user.php?id='register''> Sign Up  </a></p>"
+                        ."<p>Don't have an account? <a class='span' href='add_user.php?id=register'> Sign Up  </a></p>"
     
                         ."<p>Or With</p>"
     
