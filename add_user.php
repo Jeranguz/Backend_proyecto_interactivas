@@ -118,9 +118,7 @@
   
       <main class="logs">
         
-      <button class="return-bottom">
-            <a href="index.php" class="left-arrow">←</a>
-        </button>
+      <input class="return-bottom return-btn-admin" type="button" onclick="history.back();" value="←">
         <?php
         if($_GET){
             if($_GET["id"]=="register"){

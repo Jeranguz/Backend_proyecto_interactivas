@@ -161,6 +161,7 @@ tr:nth-child(even){
         margin: auto;
         align-content: center;
         text-align: center;
+        margin: auto;
         margin-top: 10%;
     }
 
@@ -293,6 +294,34 @@ tr:nth-child(even){
  .img-user{
     height: 1.6rem;
     width: 100%;
+ }
+
+ .profile-settings-container{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin: auto;
+    width: 50vw;
+    margin-top: 5rem;
+ }
+
+ .profile-settings{
+    display: grid;
+    padding: 1rem;
+    color: tomato;
+    text-align: center;
+    background: white;
+    text-decoration: none;
+    transition: ease-in-out .1s;
+ }
+
+ .profile-settings:hover{
+    background: var(--clr-main);
+ }
+
+ .profile-icon-resource{
+    width: 4rem;
+    margin: auto;
  }
 
 

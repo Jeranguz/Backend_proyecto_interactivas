@@ -26,7 +26,7 @@
                 echo 
                 "<li class='pr'>"
                 ."<img class='img-user' src='./img/user.svg' alt=''>" 
-                ."<a class='nav-list-link user-name' href='./logout.php'>" . $_SESSION["fullname"] . "</a>"
+                ."<a class='nav-list-link user-name' href='./profile.php'>" . $_SESSION["fullname"] . "</a>"
                 ."</li>";
                 /* echo "<li><a class='nav-list-link' href='./logout.php'>Log out</a></li>"; */
             } else {
