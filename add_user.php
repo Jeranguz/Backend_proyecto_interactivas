@@ -3,7 +3,7 @@
     $message = "";
 
     if($_POST){
-
+    
         if(isset($_POST["login"])){
 
             $user = $database->select("tb_users","*",[
@@ -14,7 +14,7 @@
                     if(password_verify($_POST["password"], $user[0]["pwd"])){
                         session_start();
                         $_SESSION["isLoggedIn"] = true;
-                        $_SESSION["fullname"] = $user[0]["usr"];
+                        $_SESSION["username"] = $user[0]["usr"];
                         header("location: index.php");
                     }else{
                         $message = "Wrong username or password";
@@ -241,30 +241,27 @@
 
 
 ?>
-
-      </main>  
-
-           <script>
-            /* eyeSwitch */
-            function togglePassword() {
-                const passwordInput = document.getElementById("password");
-                const toggleIcon = document.getElementById("togglePassword");
-
-                if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-                toggleIcon.src = "./img/eye-password-show-svgrepo-com.svg"; 
-                
-                } else {
-                passwordInput.type = "password";
-                toggleIcon.src = "./img/eye-password-see-view-svgrepo-com.svg";
-               
-                }
-            }
-               /* eyeSwitch */
-
-         
-            </script>
-    
+       <script>
    
+   /* eyeSwitch */
+   function togglePassword() {
+       const passwordInput = document.getElementById("password");
+       const toggleIcon = document.getElementById("togglePassword");
+   
+       if (passwordInput.type === "password") {
+       passwordInput.type = "text";
+       toggleIcon.src = "./img/eye-password-show-svgrepo-com.svg"; 
+       
+       } else {
+       passwordInput.type = "password";
+       toggleIcon.src = "./img/eye-password-see-view-svgrepo-com.svg";
+      
+       }
+   }
+      /* eyeSwitch */
+   </script>
+      </main>  
+         
+           
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php 
     require_once 'database.php';
+    session_start();
     $categories = $database->select("tb_dishes_category","*");
    
 ?>
