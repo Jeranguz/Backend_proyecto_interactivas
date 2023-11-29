@@ -59,6 +59,40 @@
     margin-top: 4rem;
     margin-bottom: 4rem;
 }
+.search-box{
+    
+    width: 19rem;
+    height: 1rem;
+    display: flex;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    background: white;
+    border-radius: 1rem;
+    align-items: center;
+}
+.search-elements{
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    margin-left: 3rem;
+    align-items: center;
+    gap: 2rem;
+}
+
+.search-space{
+    width: 100%;
+    outline: none;
+    border: none;
+    transition: 0.8s;
+    background: transparent;
+}
+
+.search-btn{
+    background: var(--clr-buttom);
+    color: white;
+    outline: none;
+    border: none;
+}
 
 @media (max-width: 767.98px) {
     .swiper-hero {
@@ -68,6 +102,11 @@
         justify-content: center;
         margin-top: 4rem;
         margin-bottom: 4rem;
+    }
+
+    .search-box{
+    
+        width: 11rem;
     }
 
 }
