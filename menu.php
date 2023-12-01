@@ -37,6 +37,7 @@ $categories = $database->select("tb_dishes_category", "*");
             <input class="search-btn" type="button" value="search" onclick="getFilters()">
         </div>
         <select name="dish_category" id="dish_category" class="filter">
+            <option value="0">All categories</option>
             <?php
             foreach ($categories as $category) {
                 echo "<option value='" . $category["id_category"] . "'>" . $category["n_category"] . "</option>";

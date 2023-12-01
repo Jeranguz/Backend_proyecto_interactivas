@@ -72,7 +72,6 @@
 }
 .search-elements{
     display: flex;
-    width: 100%;
     margin-top: 2rem;
     margin-left: 3rem;
     align-items: center;
@@ -87,11 +86,21 @@
     background: transparent;
 }
 
-.search-btn{
-    background: var(--clr-buttom);
-    color: white;
-    outline: none;
-    border: none;
+
+
+.form-items {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+
+.table-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 @media (max-width: 767.98px) {
@@ -242,4 +251,78 @@
     width: 90vw;
 }
 
+.logoOpt2{
+    margin-top: -3rem;
+    width: 9rem;
+    
+}
 
+    .login-container{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #ffffff;
+        padding: 30px;
+        width: 450px;
+        border-radius: 20px;
+        color: black;
+        margin: auto;
+        align-content: center;
+        text-align: center;
+        margin: auto;
+        margin-top: 10%;
+    }
+
+.title-conatiner{
+    display: grid;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+}
+
+.form-input{
+    display: grid;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+    border-radius: 0px;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+.form-container{
+    margin-top: 1rem;
+    display: grid;
+    align-content: center;
+   
+
+}
+
+.profile-settings-container{
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin: auto;
+    width: 50vw;
+    margin-top: 5rem;
+ }
+
+ .profile-settings{
+    display: grid;
+    padding: 1rem;
+    color: tomato;
+    text-align: center;
+    background: white;
+    text-decoration: none;
+    transition: ease-in-out .1s;
+ }
+
+ .profile-settings:hover{
+    background: var(--clr-main);
+ }

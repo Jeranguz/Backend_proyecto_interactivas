@@ -187,12 +187,7 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
     
-  
-
-
-
-
-.left-arrow{
+  .left-arrow{
     color: var(--clr-buttom);
     padding: 0 2rem 0 2rem;
     text-decoration: none;
@@ -202,8 +197,117 @@
     color: var(--clr-black); /* Cambia el color al pasar el cursor */
 }
 
-
 .line {
     margin-top: 4rem;
 }
 
+
+.return-btn-admin{
+    padding: 0 2.4rem;
+}
+
+.return-btn-admin:hover{
+    color: var(--clr-caracteristcs);
+}
+
+.admin-botton{
+    width: 9rem;
+    justify-content: center;
+}
+.admin-btn-container{
+    gap: 2rem;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.action-button{
+    
+    color: var(--clr-white);
+}
+
+.search-btn{
+    background: var(--clr-buttom);
+    color: white;
+    outline: none;
+    border: none;
+}
+
+.img-delete{
+    width: 6rem;
+    height: 4rem;
+}
+.form-img{
+    height: 20.2rem;
+}
+.delete-img {
+    height: 26.2rem;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.action-img{
+    width: 2.5rem;
+    height: 100%;  
+    transition: width 0.5s ease;
+}
+
+.register-btn{
+    display: grid;
+    border: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.span {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #2d79f3;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-login {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+    border: 1px solid #ededef;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .btn-login:hover {
+    border: 1px solid #2d79f3;
+    
+  }
+
+  .icon-login{
+    width: 33px;
+  }
+
+  .img-user{
+    height: 1.6rem;
+    width: 100%;
+ }
+
+ .cart-buy-section{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-top: 4rem;
+ }
+
+ .profile-icon-resource{
+    width: 4rem;
+    margin: auto;
+ }
