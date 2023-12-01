@@ -324,6 +324,13 @@ tr:nth-child(even){
     margin: auto;
  }
 
+ .cart-buy-section{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    margin-top: 4rem;
+ }
+
 
 
   

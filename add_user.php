@@ -7,7 +7,7 @@
         if(isset($_POST["login"])){
 
             $user = $database->select("tb_users","*",[
-                "usr"=>$_POST["username"]
+                "usr"=>$_POST["username"],
             ]);
             if(count($user) > 0){
                 //validate password
@@ -15,6 +15,7 @@
                         session_start();
                         $_SESSION["isLoggedIn"] = true;
                         $_SESSION["username"] = $user[0]["usr"];
+                        $_SESSION["id"] = $user[0]["id_user"];
                         header("location: index.php");
                     }else{
                         $message = "Wrong username or password";
@@ -43,8 +44,14 @@
                     "pwd"=> $pass,
                     "email"=> $_POST["email"]
                 ]);
-
-                header("location: add_user.php");
+                $user = $database->select("tb_users","*",[
+                    "usr"=>$_POST["username"],
+                ]);
+                session_start();
+                $_SESSION["isLoggedIn"] = true;
+                $_SESSION["username"] = $_POST["username"];
+                $_SESSION["id"] = $user[0]["id_user"];
+                header("location: index.php");
             }
 
             }

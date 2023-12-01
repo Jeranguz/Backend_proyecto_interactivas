@@ -21,7 +21,7 @@ if ($_GET) {
         "id_dishes" => $_GET["id"]
     ]);
 }
-$modalities = $database->select("tb_modality", "*");
+
 
 ?>
 
@@ -84,18 +84,7 @@ $modalities = $database->select("tb_modality", "*");
                 <div class="input-container">
                     <div class="input-div">
                         <label class="porpuse-text" for="dish-amount">Select the quantity</label>
-                        <input class="menu-input" name="dish-amount" type="number" min="0" value="0">
-                    </div>
-                    <div class="input-div">
-                        <label class="porpuse-text" for="dish-modality">Select the modality</label>
-                        <select class="menu-input" name="dish-modality" id="dish-modality">
-                            <?php
-                            foreach ($modalities as $modality) {
-                                echo "<option value='" . $modality["id_modality"] . "'>" . $modality["n_modality"] . "</option>";
-                            }
-                            ?>
-
-                        </select>
+                        <input class="menu-input" name="dish-amount" type="number" min="1" value="1">
                     </div>
                 </div>
                 <input type="hidden" name="id_dishes" value='<?php echo $item[0]["id_dishes"]; ?>'>

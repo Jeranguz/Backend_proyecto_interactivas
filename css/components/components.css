@@ -10,6 +10,7 @@
     padding: 0.7rem 3.5rem;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
+    margin: auto;
 }
 .btn-explore:hover{
     background-color: white;

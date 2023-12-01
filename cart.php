@@ -1,8 +1,81 @@
 <?php
- session_start();
+session_start();
 require_once 'database.php';
+$total = 0;
 
-?>
+$cart_details = [];
+
+
+$cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinations'], true) : [];
+    
+        if ($_POST && isset($_POST['delete'])) {
+            foreach ($cart_details as $index => &$cart) {
+                if ($cart["id_dishes"] == $_POST["delete"]) { 
+                    
+                    unset($cart_details[$index]);
+                    $cart_details = array_values($cart_details);
+                    setcookie('destinations', json_encode($cart_details), time() + 72000);
+                        
+                    break;
+                }
+            }
+        } elseif ($_POST && !isset($_POST['Buy']) ) {
+           
+            $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinations'], true) : [];
+
+            $found = false;
+
+            foreach ($cart_details as &$cart) {
+                if ($cart["id_dishes"] == $_POST["id_dishes"]) { 
+                        $cart["dish-amount"] += $_POST["dish-amount"];
+                        $found = true;
+                    break;
+                }
+            }
+
+            if (!$found) {
+                $dish_details["id_dishes"] = $_POST["id_dishes"];
+                $dish_details["dish-amount"] = $_POST["dish-amount"];
+                $dish_details["n_dishes"] = $_POST["n_dishes"];
+                $dish_details["price"] = $_POST["price"];
+
+                $cart_details[] = $dish_details;
+            }
+
+            setcookie('destinations', json_encode($cart_details), time() + 72000);
+        
+        }
+
+        if ($_POST && isset($_POST['Buy']) && $cart_details!=[]){
+          
+          $database->insert("record",[
+                "id_user"=>$_SESSION["id"],
+                "id_modality"=>$_POST["dish-modality"],
+                "date"=> $_POST["date"],
+                "total"=>$_POST["total"] 
+        
+            ]);
+            $id_record= $database->id();
+            
+            $recordsToInsert = [];
+
+            foreach ($cart_details as $food) {
+                $record = [
+                    "id_record" => $id_record,
+                    "id_dish" => $food["id_dishes"],
+                    "amount" => $food["dish-amount"]
+                ];
+
+                $recordsToInsert[] = $record;
+            }
+            $database->insert("tb_record_details", $recordsToInsert);
+            setcookie('destinations', "", time() + 72000);
+            $cart_details = [];
+           
+        }
+
+        $modalities = $database->select("tb_modality", "*");
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,29 +84,11 @@ require_once 'database.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.3/build/global/luxon.min.js"></script>
 </head>
 <header>
     <?php
-    include "./parts/nav.php";
-    if (!isset($_SESSION['foodList'])) {
-        $_SESSION['foodList'] = [];
-    }
-
-    $total = 0;
-
-    if ($_POST && isset($_POST['delete'])) {
-        $indexToDelete = $_POST['delete'];
-        if (isset($_SESSION['foodList'][$indexToDelete])) {
-            unset($_SESSION['foodList'][$indexToDelete]);
-            $_SESSION['foodList'] = array_values($_SESSION['foodList']);
-            var_dump($_SESSION['foodList']);
-        }
-    } elseif ($_POST) {
-        $_SESSION['foodList'][] = $_POST;
-        var_dump($_SESSION['foodList']);
-    }
-
-
+     include "./parts/nav.php";
     ?>
 </header>
 
@@ -47,42 +102,60 @@ require_once 'database.php';
                 <tr>
                     <td>Dish name</td>
                     <td>Amount</td>
-                    <td>Modality</td>
                     <td>price</td>
                     <td>Delete</td>
                 </tr>
             </thead>
             <tbody>
                 <?php
-                foreach ($_SESSION['foodList'] as $index => $food) {
+                foreach ($cart_details as $food) {
                     $total += $food["price"] * $food["dish-amount"];
-                    $modality = $database->select("tb_modality", "*", [
-                        "id_modality" => $food["dish-modality"]
-                    ]);
                     echo "<tr>";
                     echo "<td>" . $food["n_dishes"] . "  </td>";
-                    echo "<td>" . $food["dish-amount"] . "  </td>";
-                    echo "<td>" . $modality[0]["n_modality"] . "  </td>";
-                    echo "<td>$" . $food["price"] * $food["dish-amount"] . "  </td>";
+                    echo "<td><input class='menu-input' name='dish-amount' type='number' min='1' value='".$food["dish-amount"]."'></td>";
+                    echo "<td>$". $food["price"] * $food["dish-amount"] . "  </td>";
                     echo "<td>
                         <form method='post'>
-                            <input type='hidden' name='delete' value='" . $index . "'>
+                            <input type='hidden' name='delete' value='" .$food["id_dishes"] . "'>
                             <button type='submit'>Delete</button>
                         </form>
                       </td>";
-                }
+                } 
                 ?>
             </tbody>
         </table>
         
     </div>
-    
-        <div class="btn-container">
-        <?php 
-            echo "<h3 class='porpuse-text'>Total to Pay ".$total."</h3>"
-        ?>
-                <input class="btn-explore" type="submit" value="Buy :)">
+                    
+        <div class="cart-buy-section">
+            
+        
+                        <form method='post'>
+                            <input type="hidden" id="timeAndDateInput" name='date' >
+                            <input type='hidden' name='total' value='<?= $total; ?>'>
+                           
+                           
+                            
+
+                             <div class="input-div">
+                                    <label class="porpuse-text" for="dish-modality">Select the modality</label>
+                                    <select class="menu-input" name="dish-modality" id="dish-modality">
+                                        <?php
+                                        foreach ($modalities as $modality) {
+                                            echo "<option value='" . $modality["id_modality"] . "'>" . $modality["n_modality"] . "</option>";
+                                        } 
+                                        ?>
+                                    </select>
+                             </div>
+                             
+                             <?php 
+                                echo "<h3 class='porpuse-text'>Total to Pay ".$total."$</h3>"
+                            ?>        
+                             <input class="btn-explore" name='Buy' type="submit" value="Buy :)">
+                        </form>
+                
             </div>
+            
 </body>
 
 <footer>
@@ -90,5 +163,30 @@ require_once 'database.php';
     include "./parts/footer.php";
     ?>
 </footer>
+
+        <script>
+        // Function to update the input field with the current time and date
+        function updateDateTime() {
+            // Get the current time and date using Luxon
+            const now = luxon.DateTime.now();
+            
+            // Format the time and date as per your requirements
+            const format = 'yyyy-MM-dd HH:mm:ss';
+            const formattedDateTime = now.toFormat(format);
+
+            // Update the value of the input field
+            document.getElementById('timeAndDateInput').value = formattedDateTime;
+        }
+
+        // Call the function when the page loads and every second (1000 milliseconds)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Call the function initially
+            updateDateTime();
+           
+            // Set up a timer to update every second
+            setInterval(updateDateTime, 1000);
+            
+        });
+        </script>
 
 </html>
