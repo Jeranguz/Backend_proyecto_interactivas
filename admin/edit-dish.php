@@ -12,7 +12,9 @@ if ($_GET) {
     ], [
         "tb_dishes.id_dishes",
         "tb_dishes.n_dishes",
+        "tb_dishes.n_dishes_tr",
         "tb_dishes.d_dish",
+        "tb_dishes.d_dish_tr",
         "tb_dishes.img_dish",
         "tb_dishes.featured",
         "tb_dishes.price",
@@ -61,10 +63,12 @@ if ($_POST) {
     }
     $database->update("tb_dishes", [
         "n_dishes" => $_POST["n_dishes"],
+        "n_dishes_tr" => $_POST["n_dishes_tr"],
         "id_category" => $_POST["id_category"],
         "id_amount_people" => $_POST["id_amount_people"],
         "price" => $_POST["price"],
         "d_dish" => $_POST["d_dish"],
+        "d_dish_tr" => $_POST["d_dish_tr"],
         "featured" => $_POST["featured"],
         "img_dish" => $img
     ], [
@@ -123,8 +127,16 @@ if ($_POST) {
                 <input id="n_dishes" name="n_dishes" type="text" value="<?php echo $item[0]["n_dishes"] ?>">
             </div>
             <div class="form-items">
+                <label class="porpuse-text" for="dish_name_tr">Dish name tranlation</label>
+                <input id="n_dishes_tr" name="n_dishes_tr" type="text" value="<?php echo $item[0]["n_dishes_tr"] ?>">
+            </div>
+            <div class="form-items">
                 <label class="porpuse-text" for="d_dish">Dish description</label>
                 <textarea id="d_dish" name="d_dish" cols="30" rows="10"><?php echo $item[0]["d_dish"] ?></textarea>
+            </div>
+            <div class="form-items">
+                <label class="porpuse-text" for="d_dish_tr">Dish description tranlation</label>
+                <textarea id="d_dish_tr" name="d_dish_tr" cols="30" rows="10"><?php echo $item[0]["d_dish_tr"] ?></textarea>
             </div>
             <div class="form-elements">
 

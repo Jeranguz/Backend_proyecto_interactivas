@@ -35,15 +35,18 @@ if ($_POST) {
 
             $database->insert("tb_dishes", [
                 "n_dishes" => $_POST["n_dishes"],
+                "n_dishes_tr" => $_POST["n_dishes_tr"],
                 "id_category" => $_POST["id_category"],
                 "id_amount_people" => $_POST["id_amount_people"],
                 "price" => $_POST["price"],
                 "d_dish" => $_POST["d_dish"],
+                "d_dish_tr" => $_POST["d_dish_tr"],
                 "featured" => $_POST["featured"],
                 "img_dish" => "$img"
             ]);
         }
     }
+    header("location: dish-list.php");
     // Reference: https://medoo.in/api/insert
 
 }
@@ -93,8 +96,16 @@ if ($_POST) {
                 <input id="n_dishes" name="n_dishes" type="text">
             </div>
             <div class="form-items">
+                <label class="porpuse-text" for="dish_name_tr">Dish name translation</label>
+                <input id="n_dishes_tr" name="n_dishes_tr" type="text">
+            </div>
+            <div class="form-items">
                 <label class="porpuse-text" for="d_dish">Dish description</label>
                 <textarea id="d_dish" name="d_dish" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form-items">
+                <label class="porpuse-text" for="d_dish_tr">Dish description translation</label>
+                <textarea id="d_dish_tr" name="d_dish_tr" cols="30" rows="10"></textarea>
             </div>
             <div class="form-elements">
 
