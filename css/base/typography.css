@@ -8,10 +8,10 @@
     margin-top: 15rem;
 }
 .main-text{
-    text-align: center;
     font-family: var(--ff-mon);
     font-size: clamp(16px, 2vw, var(--fs-subtitle));
     margin-bottom: 7rem;
+    text-align: center;
 }
 .featured-text{
     font-family: var(--ff-nor);

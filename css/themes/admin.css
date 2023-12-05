@@ -1,26 +1,26 @@
 thead{
-    font-size: var(--fs-main-text);
     font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--fs-main-text);
 }
 thead tr{
     background: var(--clr-buttom);
     color: white;
 }
 td{
-    padding: 2rem;
-    font-size: 1.5rem;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5rem;
+    padding: 2rem;
 }
 .table-tr:nth-child(even) {
     background: #f2f2f2;
 }
 table{
-    width: 100%;
     border-collapse: collapse;
+    width: 100%;
 }
 input, textarea, select{
-    padding: .5rem;
     border-radius: .5rem;
+    padding: .5rem;
 }
 
 tr:nth-child(even){
@@ -43,28 +43,28 @@ tr:nth-child(even){
 
 
 .card-background{
-    margin: auto;
     background: var(--clr-main);
-    width: 45rem;
     border-radius: 6rem;
     display: grid;
     justify-content: center;
+    margin: auto;
     margin-top: 3rem;
+    width: 45rem;
 }
 
 
 
 .list-background{
-    margin: auto;
     background: var(--clr-main);
-    width: 79rem;
     border-radius: 6rem;
+    margin: auto;
     margin-top: 3rem;
     overflow: hidden;
+    width: 79rem;
 }
 .admin-title{
-    padding-top: 2rem;
     margin-top: 6rem;
+    padding-top: 2rem;
 }
 .form{
     width: 34rem;
@@ -75,12 +75,12 @@ tr:nth-child(even){
 }
 
 .delete-elements {
-    text-align: center;
-    padding: 1rem 0;
-    width: 40rem;
     display: grid;
     /* grid-template-columns: minmax(0, 1fr) minmax(0,1fr); */
     grid-template-columns: repeat(auto-fit, minmax(151px, 1fr));
+    padding: 1rem 0;
+    text-align: center;
+    width: 40rem;
 }
 .btn-container{
     margin: auto;
@@ -103,21 +103,21 @@ tr:nth-child(even){
 .logs{
     display: flex;
     gap: 5rem;
-    width: 95%;
     margin: auto;
+    width: 95%;
 }
 
 .form-label{
-    position: absolute;
-    margin-top: 0.7rem;
     font-size: 1rem;
+    margin-top: 0.7rem;
+    position: absolute;
     transition: .5s;
 }
     .form-input:focus ~ .form-label,
     .form-input:valid ~ .form-label{
+        color: #03e9f4;
         font-size: .9rem;
         margin-top: -1rem;
-        color: #03e9f4;
 
 }
 
@@ -125,9 +125,9 @@ tr:nth-child(even){
 
   
   .flex-row {
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 10px;
     justify-content: space-between;
     margin-top: .8rem;
@@ -138,23 +138,23 @@ tr:nth-child(even){
 
   .togglePassword{
     margin-left: 10rem;
+    margin-top: -1.3rem;
     /* position: relative; */
     position: absolute;
-    margin-top: -1.3rem;
     width: 1rem;
   }
 
   .user-name{
     background-color: transparent;
     color:  #03e9f4;
-    text-decoration: none;
     cursor: pointer;
     font-family: var(--fs-main-text);
+    text-decoration: none;
   }
 
   .pr{
-    display: flex;
     align-items: center;
+    display: flex;
     text-align: center;
   }
 

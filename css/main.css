@@ -59,12 +59,12 @@ body{
         gap: 1rem;
     }
     .record-datails{
-        text-wrap: wrap;
         font-size: 1rem;
+        text-wrap: wrap;
     }
     td{
-        padding: 1rem;
         font-size: 1rem;
+        padding: 1rem;
     }
    
     .food-container{
@@ -96,9 +96,9 @@ body{
         display: grid;
         gap: 2rem;
         list-style-type: none;
+        margin: auto;
         padding: 0;
         text-align: center;
-        margin: auto;
     }
     
     .cart{
