@@ -157,6 +157,27 @@ tr:nth-child(even){
     text-align: center;
   }
 
+/* historial-table */
+
+.historial-tr{
+    background: white;
+    color: black;
+
+}
+
+.historial-td{
+    border: solid;
+    width: 50%;
+}
+
+.historial-tr:nth-child(even) {
+    background: white;
+}
+
+.historial-thead{
+    font-weight: 600;
+}
+
  
 
  

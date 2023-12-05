@@ -43,9 +43,24 @@
                 $message= "Passwords do not match";
             }      
         }
+    }
+    if($_GET){
+        if($_GET["id"]=="historial"){
+            $records = $database->select("record","*",[
+                "id_user"=>$_SESSION["id"]
+            ]);
 
-        
+            $record_details = [];
+            foreach($records as $record){
+                $dish=$database->select("tb_record_details","*",[
+                    "id_record" => $record["id_record"]
+                ]);
+                $record_details[]=$dish;
 
+            } 
+        }
+        /* var_dump($records); */
+       
     }
 
 
@@ -123,8 +138,55 @@
                     echo
                 "<h1 class='featured-text admin-title'>Historial</h1>"
                 ."<hr style='width:98%'>"
-                ."<div style='height:30rem'>"
-                ."</div>";
+                ."<div class='records-container'>";
+                    foreach($records as $record){
+                        $modality= $database->get("tb_modality", "n_modality", [
+                            "id_modality" => $record["id_modality"]
+                        ]);
+                        echo
+                        "<div class='record-container'>"
+                        ."<div class= 'record-main-datails'>"
+                        ."<span class='record-datails'>#Num record: ".$record["id_record"]."</span>"
+                        ."<span class='record-datails'> Date: ".$record["date"]."</span>"
+                        ."</div>"
+                        ."<div class='table-div'>"
+                        ."<table>"
+                            ."<thead class='historial-thead'>"
+                                ."<tr class='historial-tr'>"
+                                    ."<td class='historial-td'>Dish name</td>"
+                                    ."<td class='historial-td'>Amount</td>"
+                                    ."<td class='historial-td'>price</td>"
+                                ."</tr>"
+                            ."</thead>"
+                            ."<tbody>";
+                               
+                                foreach ($record_details as $dishes) {
+                                    foreach($dishes as $food){
+                                        if($record["id_record"]==$food["id_record"]){
+                                            $dish_info = $database->get("tb_dishes", ["n_dishes", "price"], [
+                                                "id_dishes" => $food["id_dish"]
+                                            ]);
+                                            echo "<tr class='historial-tr'>";
+                                            echo "<td class='historial-td'>" . $dish_info["n_dishes"] . "  </td>";
+                                            echo "<td class='historial-td'>" . $food["amount"] . "  </td>";
+                                            echo "<td class='historial-td'>" .$dish_info["price"] * $food["amount"] . "  </td>";
+                                        }
+
+                                    }
+                                }  
+                                
+                            echo"</tbody>";
+                        echo"</table>";
+                            echo"</div>";
+                            echo
+                            "<div class= 'record-main-datails'>"
+                            ."<span class='record-datails'>Modality: $modality  </span>"
+                            ."<span class='record-datails'> Total: $".$record["total"]."</span>"
+                            ."</div>"; 
+                        echo"</div>";    
+
+                    }
+                echo"</div>";
                 
                 }
            
