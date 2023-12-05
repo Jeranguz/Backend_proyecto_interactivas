@@ -87,7 +87,9 @@
 }
 
 
-
+.tr-div{
+    margin-top: 2rem;
+}
 .form-items {
     display: flex;
     flex-direction: column;
@@ -96,7 +98,8 @@
 
 
 .table-div{
-    width: 100%;
+    width: 90%;
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -332,7 +335,7 @@
         margin-bottom: 20rem;
         margin-top: 5rem;
         display: grid;
-       
+        text-align: center;
 
     }
     .record-container{

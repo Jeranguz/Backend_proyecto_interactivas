@@ -15,7 +15,7 @@ td{
     background: #f2f2f2;
 }
 table{
-    width: 90%;
+    width: 100%;
     border-collapse: collapse;
 }
 input, textarea, select{
@@ -64,6 +64,7 @@ tr:nth-child(even){
 }
 .admin-title{
     padding-top: 2rem;
+    margin-top: 6rem;
 }
 .form{
     width: 34rem;

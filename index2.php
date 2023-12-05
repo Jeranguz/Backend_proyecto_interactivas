@@ -50,19 +50,22 @@ if ($_GET) {
         <section id="buy" class="buy-dish-container">
 
             <?php
-            echo "<h2 class='featured-text'>" . $item[0]["n_dishes"] . "</h2>";
+            echo "<h2 id='dish-name' class='featured-text'>" . $item[0]["n_dishes"] . "</h2>";
             echo "<div class='img-thumb'>";
             echo "<div class='dish-price-container'>";
             echo "<span class='dish-price'>$" . $item[0]["price"] . "</span>";
             echo "</div>";
             echo "<img class='dishes-img' src='./img/" . $item[0]["img_dish"] . "' />";
             echo "</div>";
-            echo "<p class='porpuse-text'>" . $item[0]["d_dish"] . "</p>";
-
-
+            echo "<div class='tr-div'>";
+            echo "<span id='lang' class='tr-btn' onclick='getTranslation(" . $item[0]["id_dishes"] . ")'>da</span>";
+            echo "</div>";
+            echo "<p id='dish-description' class='porpuse-text'>" . $item[0]["d_dish"] . "</p>";
+            
             echo "<section class='tags-container'>";
             echo "    <div class='tag'>";
             echo "        <img class='tag-img' src='./img/categories.svg' alt=''>";
+            
             echo "        <span class='porpuse-text'> " . $item[0]["c_description"] . "</span>";
             echo "    </div>";
             echo "    <div class='tag'>";
@@ -139,7 +142,41 @@ if ($_GET) {
         ?>
 
     </main>
+<script>
+    let requestLang = "da";
 
+function switchLang(){
+    if(requestLang == "da")requestLang = "tr";
+    else requestLang = "da";
+    document.getElementById("lang").innerText = requestLang;
+}
+
+function getTranslation(id){
+
+    let info = {
+        id_dish: id,
+        language: requestLang
+    };
+
+    fetch("http://localhost/backend_proyecto_interactivas/traduction.php",{
+        method: "POST",
+        mode: "same-origin",
+        credentials: "same-origin",
+        headers:{
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(info)
+    })
+    .then(response => response.json())
+    .then(data => {
+        switchLang();
+        document.getElementById("dish-name").innerText = data.name;
+        document.getElementById("dish-description").innerText = data.description;
+    })
+    .catch(err => console.log("error: " + err));
+}
+</script>
 
 
 </body>

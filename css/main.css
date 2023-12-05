@@ -24,7 +24,7 @@ body{
     width: 100%;
 }
 .swiper{
-    width: 80%;
+    width: 90%;
     
 }
 .swiper-button-next{
@@ -55,6 +55,17 @@ body{
 }
 
 @media (max-width: 700px){
+    .record-main-datails{
+        gap: 1rem;
+    }
+    .record-datails{
+        text-wrap: wrap;
+        font-size: 1rem;
+    }
+    td{
+        padding: 1rem;
+        font-size: 1rem;
+    }
    
     .food-container{
         transition: none;

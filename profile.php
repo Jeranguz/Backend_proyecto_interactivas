@@ -174,9 +174,11 @@
 
                                     }
                                 }  
+                            
                                 
                             echo"</tbody>";
                         echo"</table>";
+                       
                             echo"</div>";
                             echo
                             "<div class= 'record-main-datails'>"
@@ -185,6 +187,9 @@
                             ."</div>"; 
                         echo"</div>";    
 
+                    }
+                    if(count($record_details)==0){
+                        echo "<h2 class='main-text'>No orders have been placed</h2>";
                     }
                 echo"</div>";
                 

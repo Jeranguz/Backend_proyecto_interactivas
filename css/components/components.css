@@ -82,6 +82,13 @@
 }
 
 /*Pag2*/
+.tr-btn {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    background: var(--clr-buttom);
+}
 .img-thumb {
     display: flex;
     padding: 0 1rem;
@@ -169,7 +176,7 @@
     left: 7rem;
 }
 .menu-input{
-    width: 13rem;
+    width: 40%;
     margin: auto;
     font-family: var(--ff-mon);
     border-radius: 0.5rem;
@@ -311,3 +318,4 @@
     width: 4rem;
     margin: auto;
  }
+

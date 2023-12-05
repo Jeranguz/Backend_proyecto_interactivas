@@ -47,7 +47,9 @@ $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinat
         }
 
         if ($_POST && isset($_POST['Buy']) && $cart_details!=[]){
-          
+          if($_SESSION["isLoggedIn"]==false){
+                header("location: add_user.php");
+          }
           $database->insert("record",[
                 "id_user"=>$_SESSION["id"],
                 "id_modality"=>$_POST["dish-modality"],
@@ -126,7 +128,11 @@ $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinat
         </table>
         
     </div>
-                    
+    <?php 
+            if(count($cart_details)==0){
+                echo "<h2 class='main-text'>No items added</h2>";
+            }
+        ?>         
         <div class="cart-buy-section">
             
         
