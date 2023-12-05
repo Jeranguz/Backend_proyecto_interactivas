@@ -275,6 +275,10 @@
         margin-top: 6rem;
     }
 
+    .profle-login{
+        width: 18.5rem;
+    }
+
 .title-conatiner{
     display: grid;
     margin: auto;
@@ -309,7 +313,7 @@
 .profile-settings-container{
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(202px, 1fr));
     margin: auto;
     width: 50vw;
     margin-top: 5rem;

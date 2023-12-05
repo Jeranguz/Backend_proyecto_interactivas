@@ -90,7 +90,7 @@
                     echo
             "<h1 class='featured-text admin-title'>Edit profile</h1>"
             ."<hr style='width:98%'>"  
-            ."<section id='register' class='login-container'>"
+            ."<section id='register' class='login-container profle-login'>"
            ."<form class='form-container'  method='post' action='profile.php?id=edt-profile'>"
                         ."<div class='form-items'>"                 
                                 ."<input id='fullname' class='form-input' type='text' name='fullname' required='' value='".$user[0]["fullname"]."'>"
@@ -115,7 +115,7 @@
                     echo
                 "<h1 class='featured-text admin-title'>Change Password</h1>"
                 ."<hr style='width:98%'>"    
-                ."<section id='register' class='login-container'>"
+                ."<section id='register' class='login-container profle-login'>"
                ."<form class='form-container'  method='post' action='profile.php?id=upt-pwd'>"
                             ."<div class='form-items'>"                     
                                 ."<input id='password' class='form-input' type='password' name='password' required=''>"

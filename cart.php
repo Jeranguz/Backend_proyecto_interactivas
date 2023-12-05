@@ -205,7 +205,7 @@ $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinat
                             
                             
 
-                                    fetch("http://localhost/backend_proyecto_interactivas/traduction2.php",{
+                                    fetch("http://localhost/backend_proyecto_interactivas/edit_amount.php",{
                                     method: "POST",
                                     mode: "same-origin",
                                     credentials: "same-origin",
@@ -217,9 +217,8 @@ $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinat
                                 })
                                 .then(response => response.json())
                                 .then(data => {
+                
                                     location.href = location.href;
-
-                                    
                                     })
                                     .catch(err => console.log("error: " + err));
 
