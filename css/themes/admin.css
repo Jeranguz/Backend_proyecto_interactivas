@@ -102,9 +102,9 @@ tr:nth-child(even){
 
 .logs{
     display: flex;
-    width: 50%;
-    margin: auto;
     gap: 5rem;
+    width: 95%;
+    margin: auto;
 }
 
 .form-label{

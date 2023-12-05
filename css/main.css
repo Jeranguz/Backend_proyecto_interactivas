@@ -103,7 +103,6 @@ body{
     
     .cart{
         display: grid;
-        width: 40%;
         margin: auto;
      }
 }

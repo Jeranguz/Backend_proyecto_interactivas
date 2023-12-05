@@ -91,6 +91,7 @@ if ($_GET) {
                     </div>
                 </div>
                 <input type="hidden" name="id_dishes" value='<?php echo $item[0]["id_dishes"]; ?>'>
+                <input type="hidden" name="add_cart" value=''>
                 <input type="hidden" name="price" value='<?php echo $item[0]["price"]; ?>'>
                 <input type="hidden" name="n_dishes" value='<?php echo $item[0]["n_dishes"]; ?>'>
                 <input class="order-now-bottom" class="btn-explore" type="submit" value="Order Now">

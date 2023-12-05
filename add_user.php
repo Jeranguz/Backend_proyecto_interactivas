@@ -125,7 +125,7 @@
   
       <main class="logs">
         
-      <input class="return-bottom return-btn-admin" type="button" onclick="history.back();" value="←">
+      <input class="return-bottom return-btn-admin return-btn-add_usr " type="button" onclick="history.back();" value="←">
         <?php
         if($_GET){
             if($_GET["id"]=="register"){

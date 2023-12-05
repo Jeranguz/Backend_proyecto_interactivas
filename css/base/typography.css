@@ -94,7 +94,7 @@
 
 .add-user-title{
     font-family: var(--ff-nor);
-    font-size: var(--fs-subtitle);
+    font-size: var(--fs-main-text);
     font-weight: var(--fw-black);
     margin: 1rem;
     text-align: center;

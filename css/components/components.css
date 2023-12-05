@@ -175,6 +175,10 @@
     background-color: var(--clr-buttom);
     left: 7rem;
 }
+
+.return-btn-add_usr{
+    top: 1.5rem;
+}
 .menu-input{
     width: 40%;
     margin: auto;

@@ -19,7 +19,7 @@ $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinat
                     break;
                 }
             }
-        } elseif ($_POST && !isset($_POST['Buy']) ) {
+        } elseif ($_POST && !isset($_POST['Buy']) && isset($_POST['add_cart']) ) {
            
             $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinations'], true) : [];
 
@@ -110,12 +110,13 @@ $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinat
             </thead>
             <tbody>
                 <?php
-                foreach ($cart_details as $food) {
+                foreach ($cart_details as $index=> $food) {
+                   
                     $total += $food["price"] * $food["dish-amount"];
                     echo "<tr>";
                     echo "<td>" . $food["n_dishes"] . "  </td>";
-                    echo "<td><input class='menu-input' name='dish-amount' type='number' min='1' value='".$food["dish-amount"]."'></td>";
-                    echo "<td>$". $food["price"] * $food["dish-amount"] . "  </td>";
+                    echo "<td><input class='menu-input' id='id_amount' name='".$food["id_dishes"]."' type='number' min='1' value='".$food["dish-amount"]."'></td>";
+                    echo "<td id='dish_total'>$". $food["price"] * $food["dish-amount"] . "  </td>";
                     echo "<td>
                         <form method='post'>
                             <input type='hidden' name='delete' value='" .$food["id_dishes"] . "'>
@@ -155,7 +156,7 @@ $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinat
                              </div>
                              
                              <?php 
-                                echo "<h3 class='porpuse-text'>Total to Pay ".$total."$</h3>"
+                                echo "<h3 id='total' class='porpuse-text'>Total to Pay ".$total."$</h3>"
                             ?>        
                              <input class="btn-explore" name='Buy' type="submit" value="Buy :)">
                         </form>
@@ -191,8 +192,45 @@ $cart_details = isset($_COOKIE['destinations']) ? json_decode($_COOKIE['destinat
            
             // Set up a timer to update every second
             setInterval(updateDateTime, 1000);
+
+                        var inputElements = document.querySelectorAll('#id_amount');
+                        inputElements.forEach(function(inputElement) {
+                            inputElement.addEventListener('change', function() {
+                            // Esta función se ejecutará cuando cambie el valor del input
+                           
+                            let info = {
+                            id_dish: inputElement.name,
+                            amount: inputElement.value
+                            };
+                            
+                            
+
+                                    fetch("http://localhost/backend_proyecto_interactivas/traduction2.php",{
+                                    method: "POST",
+                                    mode: "same-origin",
+                                    credentials: "same-origin",
+                                    headers:{
+                                        'Accept': 'application/json, text/plain, */*',
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify(info)
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    location.href = location.href;
+
+                                    
+                                    })
+                                    .catch(err => console.log("error: " + err));
+
+                            });
+                });
             
         });
+
+
         </script>
+
+        
 
 </html>
